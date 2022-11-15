@@ -21,7 +21,7 @@ class NewbieComponent extends SpriteAnimationComponent
   static const int _desiredNumberOfSpritesInRowForIdleAnimation = 1;
   static const double _sizeMultiplier = 1;
 
-  Vector2 get _componentSize => Vector2.all(NewbieSpriteSheet.spriteSize) * _sizeMultiplier;
+  Vector2 get _componentSize => NewbieSpriteSheet.spriteSize * _sizeMultiplier;
 
   NewbieComponent() {
     add(
@@ -90,7 +90,7 @@ class NewbieComponent extends SpriteAnimationComponent
   Future<void> _createAnimation() async {
     final SpriteSheet spriteSheet = SpriteSheet(
       image: await gameRef.images.load(NewbieSpriteSheet.imagePath),
-      srcSize: Vector2.all(NewbieSpriteSheet.spriteSize),
+      srcSize: NewbieSpriteSheet.spriteSize,
     );
 
     _walkDown = spriteSheet.createAnimation(
