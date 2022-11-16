@@ -1,7 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
 
-// ignore_for_file: no-magic-number
 import '../../game/newbie_game.dart';
 import 'ambulance_spritesheet.dart';
 

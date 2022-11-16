@@ -8,6 +8,8 @@ import '../../../core_ui/movement_state.dart';
 import '../components/joystick_button_component.dart/joystick_button_component.dart';
 import '../components/joystick_button_component.dart/joystick_images.dart';
 import '../sprite_components/ambulance_component/ambulance_component.dart';
+import '../sprite_components/girl_pink_component/girl_pink_component.dart';
+import '../sprite_components/kid_yellow_component/kid_yellow_component.dart';
 import '../sprite_components/newbie_component/newbie_component.dart';
 import '../sprite_components/police_component/police_component.dart';
 import '../tiled_components/newbie_map_tiled_component.dart';
@@ -38,7 +40,13 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     final PoliceComponent police = PoliceComponent()..position = Vector2(240, 1200);
     await add(police);
 
-    final NewbieComponent newbie = NewbieComponent()..position = Vector2(200, 1222);
+    final KidYellowComponent kidYellow = KidYellowComponent()..position = Vector2(1840, 1520);
+    await add(kidYellow);
+
+    final GirlPinkComponent girlPink = GirlPinkComponent()..position = Vector2(1600, 1480);
+    await add(girlPink);
+
+    final NewbieComponent newbie = NewbieComponent()..position = Vector2(1600, 1400);
     await add(newbie);
     camera.followComponent(newbie, worldBounds: worldBounds);
 
