@@ -2,7 +2,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
 
-import '../../../../core_ui/movement_state.dart';
+import '../../../../core_ui/movement_direction.dart';
 import '../../../../core_ui/screen.dart';
 import '../../game/newbie_game.dart';
 import 'newbie_sprite_sheet.dart';
@@ -51,39 +51,41 @@ class NewbieComponent extends SpriteAnimationComponent
   void _updateMovement() {
     animation = _idle;
     switch (gameRef.georgeMovementState) {
-      case kWalkDown:
+      case MovementDirection.walkDown:
         if (y < gameRef.mapSize.height - height) {
-          if (gameRef.collisionDirection != kWalkDown) {
+          if (gameRef.collisionDirection != MovementDirection.walkDown) {
             y += _speed;
             animation = _walkDown;
           }
         }
         break;
-      case kWalkLeft:
+      case MovementDirection.walkLeft:
         final bool notReachedLeftScreenEdge = x > kStartXPosition;
         if (notReachedLeftScreenEdge) {
-          if (gameRef.collisionDirection != kWalkLeft) {
+          if (gameRef.collisionDirection != MovementDirection.walkLeft) {
             animation = _walkLeft;
             x -= _speed;
           }
         }
         break;
-      case kWalkUp:
+      case MovementDirection.walkUp:
         if (y > kStartYPosition) {
-          if (gameRef.collisionDirection != kWalkUp) {
+          if (gameRef.collisionDirection != MovementDirection.walkUp) {
             animation = _walkUp;
             y -= _speed;
           }
         }
         break;
-      case kWalkRight:
+      case MovementDirection.walkRight:
         if (x < gameRef.mapSize.width - width) {
-          if (gameRef.collisionDirection != kWalkRight) {
+          if (gameRef.collisionDirection != MovementDirection.walkRight) {
             animation = _walkRight;
             x += _speed;
           }
         }
         break;
+      default:
+        animation = _idle;
     }
   }
 

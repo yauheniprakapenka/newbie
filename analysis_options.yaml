@@ -1,5 +1,5 @@
-# Updated 03.10.2022
-# Dart Code Metric v4.15.2
+# Updated 17.11.2022
+# Dart Code Metric v5.0.1
 # flutter_lints v2.0.1
 
 include: package:flutter_lints/flutter.yaml
@@ -30,14 +30,44 @@ dart_code_metrics:
     source-lines-of-code: 50
     weight-of-class: 0.33
   rules:
+    - member-ordering:
+        alphabetize: false
+        order:
+          - public-fields
+          - private-fields
+          # - public-getters
+          - private-getters
+          - public-setters
+          - private-setters
+          - constructors
+          - public-methods
+          - private-methods
+        widgets-order:
+          - final-fields
+          - const-fields
+          - var-fields
+          - constructor
+          - named-constructor
+          - overridden-public-methods
+          - init-state-method
+          - did-change-dependencies-method
+          - did-update-widget-method
+          - dispose-method
+          - build-method
+          - static-methods
+          - public-methods
+          - private-methods
     - always-remove-listener
+    - avoid-cascade-after-if-null
     - avoid-returning-widgets
+    - avoid-redundant-async
     - avoid-unnecessary-setstate
     - avoid-wrapping-in-padding
     # - avoid-ignoring-return-values
     # - avoid-late-keyword
     - avoid-collection-methods-with-unrelated-types
     - avoid-global-state
+    # - avoid-passing-async-when-sync-expected
     # - avoid-dynamic
     - avoid-missing-enum-constant-in-map
     - avoid-nested-conditional-expressions:
@@ -53,6 +83,8 @@ dart_code_metrics:
     # - avoid-non-ascii-symbols
     - ban-name
     - binary-expression-operand-order
+    - check-for-equals-in-render-object-setters
+    - consistent-update-render-object
     - double-literal-format
     # - format-comment
     # - member-ordering-extended
@@ -64,6 +96,7 @@ dart_code_metrics:
     - no-equal-then-else
     # - no-magic-number
     - no-object-declaration
+    - missing-test-assertion
     - prefer-conditional-expressions
     # - prefer-commenting-analyzer-ignores
     # - prefer-correct-identifier-length
@@ -72,9 +105,12 @@ dart_code_metrics:
     - prefer-first
     - prefer-last
     - prefer-async-await
+    - prefer-correct-test-file-name
+    - prefer-correct-edge-insets-constructor
     - prefer-match-file-name
     - prefer-trailing-comma
     - prefer-immediate-return
+    - prefer-iterable-of
     - prefer-moving-to-variable
     - tag-name
     - prefer-single-widget-per-file:
@@ -180,7 +216,7 @@ linter:
     library_private_types_in_public_api: false
     lines_longer_than_80_chars: false
     missing_whitespace_between_adjacent_strings: true
-    no_default_cases: true
+    no_default_cases: false
     no_runtimeType_toString: true
     no_leading_underscores_for_library_prefixes: true
     non_constant_identifier_names: true

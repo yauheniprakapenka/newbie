@@ -4,7 +4,7 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/material.dart';
 import 'package:tiled/tiled.dart';
 
-import '../../../core_ui/movement_state.dart';
+import '../../../core_ui/movement_direction.dart';
 import '../components/joystick_button_component.dart/joystick_button_component.dart';
 import '../components/joystick_button_component.dart/joystick_images.dart';
 import '../sprite_components/ambulance_component/ambulance_component.dart';
@@ -16,8 +16,8 @@ import '../tiled_components/newbie_map_tiled_component.dart';
 
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   late final Size mapSize;
-  int collisionDirection = kNoCollision;
-  int georgeMovementState = kIdle;
+  MovementDirection collisionDirection = MovementDirection.noCollision;
+  MovementDirection georgeMovementState = MovementDirection.idle;
 
   @override
   Future<void> onLoad() async {
@@ -61,10 +61,10 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
         margin: const EdgeInsets.only(left: 120, bottom: 120),
         sprite: await Sprite.load(JoystickImages.buttonUp),
         onPressed: () {
-          georgeMovementState = kWalkUp;
+          georgeMovementState = MovementDirection.walkUp;
         },
         onReleased: () {
-          georgeMovementState = kIdle;
+          georgeMovementState = MovementDirection.idle;
         },
       ),
     );
@@ -74,10 +74,10 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
         margin: const EdgeInsets.only(left: 40, bottom: 40),
         sprite: await Sprite.load(JoystickImages.buttonLeft),
         onPressed: () {
-          georgeMovementState = kWalkLeft;
+          georgeMovementState = MovementDirection.walkLeft;
         },
         onReleased: () {
-          georgeMovementState = kIdle;
+          georgeMovementState = MovementDirection.idle;
         },
       ),
     );
@@ -86,10 +86,10 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
         margin: const EdgeInsets.only(left: 120, bottom: 40),
         sprite: await Sprite.load(JoystickImages.buttonDown),
         onPressed: () {
-          georgeMovementState = kWalkDown;
+          georgeMovementState = MovementDirection.walkDown;
         },
         onReleased: () {
-          georgeMovementState = kIdle;
+          georgeMovementState = MovementDirection.idle;
         },
       ),
     );
@@ -99,10 +99,10 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
         margin: const EdgeInsets.only(left: 200, bottom: 40),
         sprite: await Sprite.load(JoystickImages.buttonRight),
         onPressed: () {
-          georgeMovementState = kWalkRight;
+          georgeMovementState = MovementDirection.walkRight;
         },
         onReleased: () {
-          georgeMovementState = kIdle;
+          georgeMovementState = MovementDirection.idle;
         },
       ),
     );
