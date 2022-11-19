@@ -1,4 +1,4 @@
-# Updated 17.11.2022
+# Updated 18.11.2022
 # Dart Code Metric v5.0.1
 # flutter_lints v2.0.1
 
@@ -104,7 +104,7 @@ dart_code_metrics:
     # - prefer-extracting-callbacks
     - prefer-first
     - prefer-last
-    - prefer-async-await
+    # - prefer-async-await
     - prefer-correct-test-file-name
     - prefer-correct-edge-insets-constructor
     - prefer-match-file-name
