@@ -7,14 +7,16 @@ import 'package:tiled/tiled.dart';
 import '../../../core_ui/movement_direction.dart';
 import '../components/joystick_button_component.dart/joystick_button_component.dart';
 import '../components/joystick_button_component.dart/joystick_images.dart';
-import '../sprite_components/ambulance_component/ambulance_component.dart';
+import '../sprite_components/car_ambulance_component/car_ambulance_component.dart';
+import '../sprite_components/door_elevator_component/door_elevator_component.dart';
 import '../sprite_components/girl_glaucous_component/girl_glaucous_component.dart';
 import '../sprite_components/girl_lilac_component/girl_lilac_component.dart';
 import '../sprite_components/girl_pink_component/girl_pink_component.dart';
 import '../sprite_components/girl_school_component/girl_school_component.dart';
 import '../sprite_components/kid_yellow_component/kid_yellow_component.dart';
 import '../sprite_components/newbie_component/newbie_component.dart';
-import '../sprite_components/police_component/police_component.dart';
+import '../sprite_components/car_police_component/car_police_component.dart';
+import '../sprite_components/tree_spritesheet_component/tree_component.dart';
 import '../tiled_components/newbie_map_tiled_component.dart';
 
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
@@ -37,10 +39,9 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     );
     final Rect worldBounds = Rect.fromLTRB(0, 0, mapSize.width, mapSize.height);
 
-    final AmbulanceComponent ambulance = AmbulanceComponent()..position = Vector2(160, 1200);
-    await add(ambulance);
+    await add(CarAmbulanceComponent());
 
-    final PoliceComponent police = PoliceComponent()..position = Vector2(240, 1200);
+    final CarPoliceComponent police = CarPoliceComponent();
     await add(police);
 
     final KidYellowComponent kidYellow = KidYellowComponent()..position = Vector2(1840, 1520);
@@ -50,8 +51,16 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     await add(GirlGlaucousComponent());
     await add(GirlSchoolComponent());
     await add(GirlLilacComponent());
+    await add(DoorElevatorComponent());
+    await add(TreeComponent()..position = Vector2(510, 1460));
+    await add(TreeComponent()..position = Vector2(620, 1404));
+    await add(TreeComponent()..position = Vector2(790, 1570));
+    await add(TreeComponent()..position = Vector2(970, 1310));
+    await add(TreeComponent()..position = Vector2(1414, 1500));
+    await add(TreeComponent()..position = Vector2(1609, 1660));
+    await add(TreeComponent()..position = Vector2(2060, 1560));
 
-    final NewbieComponent newbie = NewbieComponent()..position = Vector2(650, 600);
+    final NewbieComponent newbie = NewbieComponent()..position = Vector2(2060, 1560);
     await add(newbie);
     camera.followComponent(newbie, worldBounds: worldBounds);
 

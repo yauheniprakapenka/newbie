@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flame/collisions.dart';
 import 'package:flame/components.dart' hide Timer;
 import 'package:flame/sprite.dart';
 
@@ -8,8 +7,7 @@ import '../../game/newbie_game.dart';
 import 'girl_lilac_sprite_animation.dart';
 import 'girl_lilac_spritesheet.dart';
 
-class GirlLilacComponent extends SpriteAnimationComponent
-    with GestureHitboxes, CollisionCallbacks, HasGameRef<NewbieGame> {
+class GirlLilacComponent extends SpriteAnimationComponent with HasGameRef<NewbieGame> {
   late final SpriteAnimation _walkDownAnimation;
   late final SpriteAnimation _walkLeftAnimation;
   late final SpriteAnimation _walkRightAnimation;

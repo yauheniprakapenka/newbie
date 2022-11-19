@@ -2,14 +2,14 @@ import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
 
 import '../../game/newbie_game.dart';
-import 'ambulance_spritesheet.dart';
+import 'car_ambulance_spritesheet.dart';
 
-class AmbulanceComponent extends SpriteAnimationComponent with HasGameRef<NewbieGame> {
+class CarAmbulanceComponent extends SpriteAnimationComponent with HasGameRef<NewbieGame> {
   @override
   Future<void> onLoad() async {
     final SpriteSheet spriteSheet = SpriteSheet(
-      image: await gameRef.images.load(AmbulanceSpriteSheet.imagePath),
-      srcSize: AmbulanceSpriteSheet.spriteSize,
+      image: await gameRef.images.load(CarAmbulanceSpriteSheet.imagePath),
+      srcSize: CarAmbulanceSpriteSheet.spriteSize,
     );
 
     animation = spriteSheet.createAnimation(
@@ -18,8 +18,10 @@ class AmbulanceComponent extends SpriteAnimationComponent with HasGameRef<Newbie
       stepTime: 0.3,
     );
 
-    size = AmbulanceSpriteSheet.spriteSize * 0.4;
+    size = CarAmbulanceSpriteSheet.spriteSize * 0.4;
     anchor = Anchor.center;
+    position = Vector2(452, 1000);
+    angle = -0.2;
 
     await super.onLoad();
   }

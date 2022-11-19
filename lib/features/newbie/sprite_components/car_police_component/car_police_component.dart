@@ -1,11 +1,10 @@
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
 
-// ignore_for_file: no-magic-number
 import '../../game/newbie_game.dart';
-import 'police_spritesheet.dart';
+import 'car_police_spritesheet.dart';
 
-class PoliceComponent extends SpriteAnimationComponent with HasGameRef<NewbieGame> {
+class CarPoliceComponent extends SpriteAnimationComponent with HasGameRef<NewbieGame> {
   @override
   Future<void> onLoad() async {
     final SpriteSheet spriteSheet = SpriteSheet(
@@ -21,6 +20,8 @@ class PoliceComponent extends SpriteAnimationComponent with HasGameRef<NewbieGam
 
     size = PoliceSpriteSheet.spriteSize * 0.5;
     anchor = Anchor.center;
+    angle = 0.3;
+    position = Vector2(452, 1100);
 
     await super.onLoad();
   }
