@@ -4,7 +4,7 @@ import 'package:flame/sprite.dart';
 import '../../game/newbie_game.dart';
 import 'car_ambulance_spritesheet.dart';
 
-class CarAmbulanceComponent extends SpriteAnimationComponent with HasGameRef<NewbieGame> {
+class AmbulanceCarComponent extends SpriteAnimationComponent with HasGameRef<NewbieGame> {
   @override
   Future<void> onLoad() async {
     final SpriteSheet spriteSheet = SpriteSheet(
@@ -20,7 +20,6 @@ class CarAmbulanceComponent extends SpriteAnimationComponent with HasGameRef<New
 
     size = CarAmbulanceSpriteSheet.spriteSize * 0.4;
     anchor = Anchor.center;
-    position = Vector2(452, 1000);
     angle = -0.2;
 
     await super.onLoad();

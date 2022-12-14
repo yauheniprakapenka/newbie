@@ -7,7 +7,7 @@ import 'package:flame/sprite.dart';
 import '../../game/newbie_game.dart';
 import 'girl_school_spritesheet.dart';
 
-class GirlSchoolComponent extends SpriteAnimationComponent
+class SchoolGirlComponent extends SpriteAnimationComponent
     with GestureHitboxes, CollisionCallbacks, HasGameRef<NewbieGame> {
   late final SpriteAnimation _walkDownAnimation;
   late final SpriteAnimation _walkLeftAnimation;
@@ -18,7 +18,7 @@ class GirlSchoolComponent extends SpriteAnimationComponent
   static const double _animationSpeed = 0.16;
   static const double _movementSpeed = 0.4;
 
-  final Vector2 _initialePosition = Vector2(586, 340);
+  final Vector2 _initialePosition = Vector2(386, 310);
   int _scriptNumber = 0;
 
   @override
@@ -68,7 +68,7 @@ class GirlSchoolComponent extends SpriteAnimationComponent
   void _updateMovement() {
     switch (_scriptNumber) {
       case 0:
-        if (y < 526) {
+        if (y < 496) {
           y += _movementSpeed;
           animation = _walkDownAnimation;
         } else {
@@ -77,7 +77,7 @@ class GirlSchoolComponent extends SpriteAnimationComponent
         }
         break;
       case 1:
-        if (x < 775) {
+        if (x < 575) {
           x += _movementSpeed;
         } else {
           animation = _walkUpAnimation;
@@ -85,7 +85,7 @@ class GirlSchoolComponent extends SpriteAnimationComponent
         }
         break;
       case 2:
-        if (y > 400) {
+        if (y > 370) {
           y -= _movementSpeed;
         } else {
           animation = _walkDownAnimation;
@@ -93,7 +93,7 @@ class GirlSchoolComponent extends SpriteAnimationComponent
         }
         break;
       case 3:
-        if (y < 526) {
+        if (y < 496) {
           y += _movementSpeed;
         } else {
           animation = _walkLeftAnimation;

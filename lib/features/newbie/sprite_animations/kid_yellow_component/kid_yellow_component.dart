@@ -17,7 +17,6 @@ class KidYellowComponent extends SpriteAnimationComponent with HasGameRef<Newbie
       to: KidYellowSpriteSheet.spritesInRow,
       stepTime: 0.2,
     );
-
     size = KidYellowSpriteSheet.spriteSize;
     anchor = Anchor.center;
 

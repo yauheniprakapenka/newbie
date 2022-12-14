@@ -18,7 +18,7 @@ class HomeWidget extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           GameWidget(
-            game: NewbieGame(),
+            game: game,
           ),
         ],
       ),

@@ -1,5 +1,5 @@
-# Updated 18.11.2022
-# Dart Code Metric v5.0.1
+# Updated 09.12.2022
+# Dart Code Metric v5.2.1
 # flutter_lints v2.0.1
 
 include: package:flutter_lints/flutter.yaml
@@ -30,11 +30,13 @@ dart_code_metrics:
     source-lines-of-code: 50
     weight-of-class: 0.33
   rules:
+    # - arguments-ordering:
+    #     child-last: true
     - member-ordering:
         alphabetize: false
         order:
           - public-fields
-          - private-fields
+          # - private-fields
           # - public-getters
           - private-getters
           - public-setters
@@ -58,6 +60,7 @@ dart_code_metrics:
           - public-methods
           - private-methods
     - always-remove-listener
+    - avoid-double-slash-imports
     - avoid-cascade-after-if-null
     - avoid-returning-widgets
     - avoid-redundant-async
@@ -74,6 +77,7 @@ dart_code_metrics:
         acceptable-level: 2
     - avoid-non-null-assertion
     # - avoid-throw-in-catch-block
+    - avoid-unnecessary-conditionals
     - avoid-unnecessary-type-assertions
     - avoid-unnecessary-type-casts
     - avoid-unused-parameters
@@ -91,7 +95,7 @@ dart_code_metrics:
     # - member-ordering
     # - newline-before-return
     - no-boolean-literal-compare
-    - no-empty-block
+    # - no-empty-block
     # - no-equal-arguments
     - no-equal-then-else
     # - no-magic-number
@@ -112,9 +116,22 @@ dart_code_metrics:
     - prefer-immediate-return
     - prefer-iterable-of
     - prefer-moving-to-variable
+    # - prefer-using-list-view
+    # - prefer-static-class:
+    #     ignore-annotations:
+    #       - allowedAnnotation
+    #     ignore-private: true
+    #     ignore-names:
+    #       - (.*)Provider
+    #       - use(.*)
     - tag-name
     - prefer-single-widget-per-file:
         ignore-private-widgets: true
+    
+    - ban-name:
+        entries:
+        - ident: AppBar
+          description: Use StyledAppBar
 
 ######################################################
 # flutter_lints
@@ -286,7 +303,7 @@ linter:
     unnecessary_constructor_name: true
     unnecessary_final: false
     unnecessary_getters_setters: true
-    unnecessary_lambdas: true
+    unnecessary_lambdas: false
     unnecessary_new: true
     unnecessary_null_aware_assignments: true
     unnecessary_null_checks: true

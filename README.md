@@ -7,5 +7,5 @@
 |         | Путь                                              |
 |---------|---------------------------------------------------|
 | Flutter | source="newbie/map/newbie_map.png"                |
-| Tiled   | source = "../../images/newbie/map/newbie_map.png" |
+| Tiled   | source = "../images/newbie/map/newbie_map.png" |
 
