@@ -13,6 +13,7 @@ class TrafficLightComponent extends SpriteAnimationComponent with HasGameRef<New
     await _createAnimation();
     size = TrafficLightSpriteSheet.spriteSize;
     animation = _animation;
+    anchor = Anchor.center;
     await super.onLoad();
   }
 

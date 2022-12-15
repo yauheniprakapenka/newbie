@@ -6,6 +6,7 @@ import 'package:flame/game.dart';
 import 'package:flame/sprite.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/material.dart';
+import 'package:tiled/tiled.dart';
 
 import '../../../core_ui/movement_direction.dart';
 import '../sprite_animations/car_ambulance_component/ambulance_car_component.dart';
@@ -40,20 +41,20 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     GlaucousGirlComponent(),
     SchoolGirlComponent(),
     GirlLilacComponent(),
-    TreeComponent()..position = Vector2(310, 1430),
-    TreeComponent()..position = Vector2(420, 1374),
-    TreeComponent()..position = Vector2(590, 1540),
-    TreeComponent()..position = Vector2(770, 1280),
-    TreeComponent()..position = Vector2(1214, 1470),
-    TreeComponent()..position = Vector2(1409, 1630),
-    TreeComponent()..position = Vector2(1860, 1530),
+    TreeComponent()..position = Vector2(290, 1469),
+    TreeComponent()..position = Vector2(459.34375, 1470.74609375),
+    TreeComponent()..position = Vector2(606.0859375, 1515.89453125),
+    TreeComponent()..position = Vector2(837.703125, 1381.3828125),
+    TreeComponent()..position = Vector2(1231.80859375, 1562.89453125),
+    TreeComponent()..position = Vector2(1551.9453125, 1600.59375),
+    TreeComponent()..position = Vector2(1551.9453125, 1600.59375),
     TreeComponent()..position = Vector2(2121, 1303),
     TreeComponent()..position = Vector2(2810, 1494),
-    TrafficLightComponent()..position = Vector2(217, 1300),
-    TrafficLightComponent()..position = Vector2(136, 1200),
+    TrafficLightComponent()..position = Vector2(236.27734375, 1329.375),
+    TrafficLightComponent()..position = Vector2(150.99609375, 1261.2265625),
   ];
 
-  static final Vector2 _newBiePosition = Vector2(252.21484375, 1228.8046875);
+  static final Vector2 _newBiePosition = Vector2(1231.80859375, 1562.89453125);
 
   // * Elevator
 
@@ -72,6 +73,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
 
   @override
   Future<void> onLoad() async {
+    await super.onLoad();
     final TiledComponent newbieMap = await TiledComponent.load(
       NewbieMapTiledComponent.path,
       NewbieMapTiledComponent.tileSize,
@@ -90,8 +92,6 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     camera.followComponent(newbie, worldBounds: worldBounds);
 
     await initAppJoystick(this);
-
-    await super.onLoad();
 
     _floorListening();
 

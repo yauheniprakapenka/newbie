@@ -18,7 +18,7 @@ class GlaucousGirlComponent extends SpriteAnimationComponent
   static const double _animationSpeed = 0.2;
   static const double _movementSpeed = 0.5;
 
-  final Vector2 _initialePosition = Vector2(570, 610);
+  final Vector2 _initialePosition = Vector2(350, 580);
 
   MovementDirection _movementDirection = MovementDirection.walkLeft;
 
@@ -78,7 +78,7 @@ class GlaucousGirlComponent extends SpriteAnimationComponent
     }
 
     if (_movementDirection == MovementDirection.walkRight) {
-      if (x < 2100) {
+      if (x < 1900) {
         x += _movementSpeed;
       } else {
         _movementDirection = MovementDirection.walkDown;
@@ -88,7 +88,7 @@ class GlaucousGirlComponent extends SpriteAnimationComponent
     }
 
     if (_movementDirection == MovementDirection.walkDown) {
-      if (y < 650) {
+      if (y < _initialePosition.y + 40) {
         y += _movementSpeed;
       } else {
         _movementDirection = MovementDirection.walkLeft;
