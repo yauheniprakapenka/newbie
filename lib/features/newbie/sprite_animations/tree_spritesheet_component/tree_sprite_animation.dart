@@ -17,7 +17,7 @@ class TreeSpriteAnimation {
     return spriteSheet.createAnimation(
       row: TreeSpriteSheet.treeRowIndex,
       stepTime: _animationSpeed,
-      to: TreeSpriteSheet.spritesInRow,
+      to: TreeSpriteSheet.numberOfSprites,
     );
   }
 }

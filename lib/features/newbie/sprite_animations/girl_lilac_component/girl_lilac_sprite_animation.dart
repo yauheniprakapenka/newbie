@@ -17,7 +17,7 @@ class GirlLilacSpriteAnimation {
     return spriteSheet.createAnimation(
       row: GirlLilacSpriteSheet.walkDownAnimationRowIndex,
       stepTime: _animationSpeed,
-      to: GirlLilacSpriteSheet.spritesInRow,
+      to: GirlLilacSpriteSheet.numberOfSprites,
     );
   }
 
@@ -25,7 +25,7 @@ class GirlLilacSpriteAnimation {
     return spriteSheet.createAnimation(
       row: GirlLilacSpriteSheet.walkLeftAnimationRowIndex,
       stepTime: _animationSpeed,
-      to: GirlLilacSpriteSheet.spritesInRow,
+      to: GirlLilacSpriteSheet.numberOfSprites,
     );
   }
 
@@ -33,7 +33,7 @@ class GirlLilacSpriteAnimation {
     return spriteSheet.createAnimation(
       row: GirlLilacSpriteSheet.walkRightAnimationRowIndex,
       stepTime: _animationSpeed,
-      to: GirlLilacSpriteSheet.spritesInRow,
+      to: GirlLilacSpriteSheet.numberOfSprites,
     );
   }
 
@@ -41,7 +41,7 @@ class GirlLilacSpriteAnimation {
     return spriteSheet.createAnimation(
       row: GirlLilacSpriteSheet.walkUpAnimationRowIndex,
       stepTime: _animationSpeed,
-      to: GirlLilacSpriteSheet.spritesInRow,
+      to: GirlLilacSpriteSheet.numberOfSprites,
     );
   }
 

@@ -28,4 +28,5 @@ flutter:
     - assets/images/newbie/sprite_sheets/
     - assets/images/newbie/sprites/buttons/
     - assets/images/newbie/map/
+    - assets/images/newbie/map/components/
     - assets/images/components/joystick_buttons/

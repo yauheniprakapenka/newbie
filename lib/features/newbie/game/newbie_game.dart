@@ -8,17 +8,18 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core_ui/movement_direction.dart';
-import '../sprite_animations/car_ambulance_component/car_ambulance_component.dart';
-import '../sprite_animations/car_police_component/car_police_component.dart';
-import '../sprite_animations/door_elevator_component/door_elevator_component.dart';
+import '../sprite_animations/car_ambulance_component/ambulance_car_component.dart';
+import '../sprite_animations/car_police_component/police_car_component.dart';
 import '../sprite_animations/door_elevator_component/door_elevator_sprite_animation.dart';
-import '../sprite_animations/girl_glaucous_component/girl_glaucous_component.dart';
+import '../sprite_animations/door_elevator_component/elevator_door_component.dart';
+import '../sprite_animations/girl_glaucous_component/glaucous_girl_component.dart';
 import '../sprite_animations/girl_lilac_component/girl_lilac_component.dart';
-import '../sprite_animations/girl_pink_component/girl_pink_component.dart';
-import '../sprite_animations/girl_school_component/girl_school_component.dart';
+import '../sprite_animations/girl_pink_component/pink_girl_component.dart';
+import '../sprite_animations/girl_school_component/school_girl_component.dart';
 import '../sprite_animations/kid_yellow_component/kid_yellow_component.dart';
 import '../sprite_animations/newbie_component/newbie_component.dart';
 import '../sprite_animations/newbie_component/newbie_map_tiled_component.dart';
+import '../sprite_animations/traffic_light/traffic_light_component.dart';
 import '../sprite_animations/tree_spritesheet_component/tree_component.dart';
 import '../sprites/floor_indicator_component/floor_indicator_component.dart';
 import 'floor_manager.dart';
@@ -34,8 +35,8 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
   final List<SpriteAnimationComponent> _components = [
     AmbulanceCarComponent()..position = Vector2(250, 1000),
     PoliceCarComponent()..position = Vector2(250, 1100),
-    KidYellowComponent()..position = Vector2(1840, 1520),
-    PinkGirlComponent()..position = Vector2(1600, 1480),
+    KidYellowComponent()..position = Vector2(1642.7578125, 1471.828125),
+    PinkGirlComponent(),
     GlaucousGirlComponent(),
     SchoolGirlComponent(),
     GirlLilacComponent(),
@@ -48,7 +49,11 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     TreeComponent()..position = Vector2(1860, 1530),
     TreeComponent()..position = Vector2(2121, 1303),
     TreeComponent()..position = Vector2(2810, 1494),
+    TrafficLightComponent()..position = Vector2(217, 1300),
+    TrafficLightComponent()..position = Vector2(136, 1200),
   ];
+
+  static final Vector2 _newBiePosition = Vector2(252.21484375, 1228.8046875);
 
   // * Elevator
 
@@ -79,9 +84,11 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     );
     final Rect worldBounds = Rect.fromLTRB(0, 0, mapSize.width, mapSize.height);
     await addAll(_components);
-    final NewbieComponent newbie = NewbieComponent()..position = Vector2(180, 666);
+
+    final NewbieComponent newbie = NewbieComponent()..position = _newBiePosition;
     await add(newbie);
     camera.followComponent(newbie, worldBounds: worldBounds);
+
     await initAppJoystick(this);
 
     await super.onLoad();
@@ -106,8 +113,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
   }
 
   void _updateFloorIndicators() {
-    final List<Vector2> positions = 
-    [
+    final List<Vector2> positions = [
       Vector2(1120, 414),
       Vector2(1134, 414),
       Vector2(1148, 414),
@@ -154,8 +160,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
           _needUpdateDoorAnimation = true;
           break;
       }
-
-      print('событие ${floorModel.toString()}');
+      // print('событие ${floorModel.toString()}');
       _updateFloorIndicators();
     });
   }
@@ -166,20 +171,19 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
       switch (_elevatorDoorState) {
         case ElevatorDoorState.isOpening:
           _elevatorDoor.animation = _openingDoorAnimation;
-          print('_openingDoorAnimation');
+          // print('_openingDoorAnimation');
           break;
         case ElevatorDoorState.isClosing:
           _elevatorDoor.animation = _closingDoorAnimation;
-          print('_closingDoorAnimation');
+          // print('_closingDoorAnimation');
           break;
         case ElevatorDoorState.closed:
           _elevatorDoor.animation = _idleClosedDoorAnimation;
-          print('_idleClosedDoorAnimation');
+          // print('_idleClosedDoorAnimation');
           break;
         case ElevatorDoorState.opened:
           _elevatorDoor.animation = _idleOpenedDoorAnimation;
-
-          print('_idleOpenedDoorAnimation');
+          // print('_idleOpenedDoorAnimation');
           break;
       }
     }

@@ -18,7 +18,7 @@ class NewbieComponent extends SpriteAnimationComponent
   static const double _speed = 2.5;
   static const double _stepTime = 0.2;
   static const double _relationToSpriteSize = 0.7;
-  static const int _desiredNumberOfSpritesInRowForIdleAnimation = 1;
+  static const int _desiredNumberOfnumberOfSpritesForIdleAnimation = 1;
   static const double _sizeMultiplier = 1;
 
   Vector2 get _componentSize => NewbieSpriteSheet.spriteSize * _sizeMultiplier;
@@ -98,31 +98,31 @@ class NewbieComponent extends SpriteAnimationComponent
     _walkDown = spriteSheet.createAnimation(
       row: NewbieSpriteSheet.goDownAnimationRowIndex,
       stepTime: _stepTime,
-      to: NewbieSpriteSheet.spritesInRow,
+      to: NewbieSpriteSheet.numberOfSprites,
     );
 
     _walkLeft = spriteSheet.createAnimation(
       row: NewbieSpriteSheet.goLeftAnimationRowIndex,
       stepTime: _stepTime,
-      to: NewbieSpriteSheet.spritesInRow,
+      to: NewbieSpriteSheet.numberOfSprites,
     );
 
     _walkUp = spriteSheet.createAnimation(
       row: NewbieSpriteSheet.goUpAnimationRowIndex,
       stepTime: _stepTime,
-      to: NewbieSpriteSheet.spritesInRow,
+      to: NewbieSpriteSheet.numberOfSprites,
     );
 
     _walkRight = spriteSheet.createAnimation(
       row: NewbieSpriteSheet.goRightAnimationRowIndex,
       stepTime: _stepTime,
-      to: NewbieSpriteSheet.spritesInRow,
+      to: NewbieSpriteSheet.numberOfSprites,
     );
 
     _idle = spriteSheet.createAnimation(
       row: NewbieSpriteSheet.goDownAnimationRowIndex,
       stepTime: _stepTime,
-      to: _desiredNumberOfSpritesInRowForIdleAnimation,
+      to: _desiredNumberOfnumberOfSpritesForIdleAnimation,
     );
   }
 }

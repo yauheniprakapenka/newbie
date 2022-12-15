@@ -17,7 +17,7 @@ class GirlLilacComponent extends SpriteAnimationComponent with HasGameRef<Newbie
   static const double _movementSpeed = 0.4;
   static const Duration _pictureViewingTime = Duration(seconds: 4);
 
-  final Vector2 _initialePosition = Vector2(1180, 600);
+  final Vector2 _initialePosition = Vector2(970, 580);
   int _scriptNumber = 0;
   bool _needToRunFuture = true;
 
@@ -65,7 +65,7 @@ class GirlLilacComponent extends SpriteAnimationComponent with HasGameRef<Newbie
         }
         break;
       case 2:
-        if (x > 765) {
+        if (x > 565) {
           x -= _movementSpeed;
         } else {
           animation = _walkUpAnimation;

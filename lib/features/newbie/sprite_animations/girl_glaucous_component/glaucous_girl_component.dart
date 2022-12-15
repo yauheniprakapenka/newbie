@@ -6,9 +6,9 @@ import 'package:flame/sprite.dart';
 
 import '../../../../core_ui/movement_direction.dart';
 import '../../game/newbie_game.dart';
-import 'girl_pink_spritesheet.dart';
+import 'glaucous_girl_spritesheet.dart';
 
-class PinkGirlComponent extends SpriteAnimationComponent
+class GlaucousGirlComponent extends SpriteAnimationComponent
     with GestureHitboxes, CollisionCallbacks, HasGameRef<NewbieGame> {
   late final SpriteAnimation _walkDownAnimation;
   late final SpriteAnimation _walkLeftAnimation;
@@ -18,14 +18,17 @@ class PinkGirlComponent extends SpriteAnimationComponent
   static const double _animationSpeed = 0.2;
   static const double _movementSpeed = 0.5;
 
+  final Vector2 _initialePosition = Vector2(570, 610);
+
   MovementDirection _movementDirection = MovementDirection.walkLeft;
 
   @override
   Future<void> onLoad() async {
     await _createAnimation();
-    size = GirlPinkSpriteSheet.spriteSize * 0.8;
+    size = GlaucousGirlSpriteSheet.spriteSize * 0.8;
     animation = _walkLeftAnimation;
     _movementDirection = MovementDirection.walkLeft;
+    position = _initialePosition;
     await super.onLoad();
   }
 
@@ -37,35 +40,35 @@ class PinkGirlComponent extends SpriteAnimationComponent
 
   Future<void> _createAnimation() async {
     final SpriteSheet spriteSheet = SpriteSheet(
-      image: await gameRef.images.load(GirlPinkSpriteSheet.imagePath),
-      srcSize: GirlPinkSpriteSheet.spriteSize,
+      image: await gameRef.images.load(GlaucousGirlSpriteSheet.imagePath),
+      srcSize: GlaucousGirlSpriteSheet.spriteSize,
     );
 
     _walkDownAnimation = spriteSheet.createAnimation(
-      row: GirlPinkSpriteSheet.walkDownAnimationRowIndex,
+      row: GlaucousGirlSpriteSheet.walkDownAnimationRowIndex,
       stepTime: _animationSpeed,
-      to: GirlPinkSpriteSheet.spritesInRow,
+      to: GlaucousGirlSpriteSheet.numberOfSprites,
     );
 
     _walkLeftAnimation = spriteSheet.createAnimation(
-      row: GirlPinkSpriteSheet.walkLeftAnimationRowIndex,
+      row: GlaucousGirlSpriteSheet.walkLeftAnimationRowIndex,
       stepTime: _animationSpeed,
     );
 
     _walkRightAnimation = spriteSheet.createAnimation(
-      row: GirlPinkSpriteSheet.walkRightAnimationRowIndex,
+      row: GlaucousGirlSpriteSheet.walkRightAnimationRowIndex,
       stepTime: _animationSpeed,
     );
 
     _walkUpAnimation = spriteSheet.createAnimation(
-      row: GirlPinkSpriteSheet.walkUpAnimationRowIndex,
+      row: GlaucousGirlSpriteSheet.walkUpAnimationRowIndex,
       stepTime: _animationSpeed,
     );
   }
 
   void _updateMovement() {
     if (_movementDirection == MovementDirection.walkLeft) {
-      if (x > 1580) {
+      if (x > _initialePosition.x) {
         x -= _movementSpeed;
       } else {
         _movementDirection = MovementDirection.walkUp;
@@ -75,7 +78,7 @@ class PinkGirlComponent extends SpriteAnimationComponent
     }
 
     if (_movementDirection == MovementDirection.walkRight) {
-      if (x < 1750) {
+      if (x < 2100) {
         x += _movementSpeed;
       } else {
         _movementDirection = MovementDirection.walkDown;
@@ -85,7 +88,7 @@ class PinkGirlComponent extends SpriteAnimationComponent
     }
 
     if (_movementDirection == MovementDirection.walkDown) {
-      if (y < 1490) {
+      if (y < 650) {
         y += _movementSpeed;
       } else {
         _movementDirection = MovementDirection.walkLeft;
@@ -95,7 +98,7 @@ class PinkGirlComponent extends SpriteAnimationComponent
     }
 
     if (_movementDirection == MovementDirection.walkUp) {
-      if (y > 1470) {
+      if (y > _initialePosition.y) {
         y -= _movementSpeed;
       } else {
         _movementDirection = MovementDirection.walkRight;

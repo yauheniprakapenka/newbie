@@ -18,7 +18,7 @@ class DoorElevatorSpriteAnimation {
     return spriteSheet.createAnimation(
       row: DoorElevatorSpriteSheet.openDoorRowIndex,
       stepTime: _animationSpeed,
-      to: DoorElevatorSpriteSheet.spritesInRow,
+      to: DoorElevatorSpriteSheet.numberOfSprites,
       loop: false,
     );
   }
@@ -27,7 +27,7 @@ class DoorElevatorSpriteAnimation {
     return SpriteAnimation.spriteList(
       [
         ...List.generate(
-          DoorElevatorSpriteSheet.spritesInRow,
+          DoorElevatorSpriteSheet.numberOfSprites,
           (index) => spriteSheet.getSprite(_doorRowIndex, index),
         ).reversed,
       ],

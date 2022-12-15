@@ -5,7 +5,7 @@ import 'package:flame/components.dart' hide Timer;
 import 'package:flame/sprite.dart';
 
 import '../../game/newbie_game.dart';
-import 'girl_school_spritesheet.dart';
+import 'school_girl_spritesheet.dart';
 
 class SchoolGirlComponent extends SpriteAnimationComponent
     with GestureHitboxes, CollisionCallbacks, HasGameRef<NewbieGame> {
@@ -24,7 +24,7 @@ class SchoolGirlComponent extends SpriteAnimationComponent
   @override
   Future<void> onLoad() async {
     await _createAnimation();
-    size = GirlSchoolSpriteSheet.spriteSize * 0.8;
+    size = SchoolGirlSpriteSheet.spriteSize * 0.8;
     position = _initialePosition;
     await super.onLoad();
   }
@@ -37,28 +37,28 @@ class SchoolGirlComponent extends SpriteAnimationComponent
 
   Future<void> _createAnimation() async {
     final SpriteSheet spriteSheet = SpriteSheet(
-      image: await gameRef.images.load(GirlSchoolSpriteSheet.imagePath),
-      srcSize: GirlSchoolSpriteSheet.spriteSize,
+      image: await gameRef.images.load(SchoolGirlSpriteSheet.imagePath),
+      srcSize: SchoolGirlSpriteSheet.spriteSize,
     );
 
     _walkDownAnimation = spriteSheet.createAnimation(
-      row: GirlSchoolSpriteSheet.walkDownAnimationRowIndex,
+      row: SchoolGirlSpriteSheet.walkDownAnimationRowIndex,
       stepTime: _animationSpeed,
-      to: GirlSchoolSpriteSheet.spritesInRow,
+      to: SchoolGirlSpriteSheet.numberOfSprites,
     );
 
     _walkLeftAnimation = spriteSheet.createAnimation(
-      row: GirlSchoolSpriteSheet.walkLeftAnimationRowIndex,
+      row: SchoolGirlSpriteSheet.walkLeftAnimationRowIndex,
       stepTime: _animationSpeed,
     );
 
     _walkRightAnimation = spriteSheet.createAnimation(
-      row: GirlSchoolSpriteSheet.walkRightAnimationRowIndex,
+      row: SchoolGirlSpriteSheet.walkRightAnimationRowIndex,
       stepTime: _animationSpeed,
     );
 
     _walkUpAnimation = spriteSheet.createAnimation(
-      row: GirlSchoolSpriteSheet.walkUpAnimationRowIndex,
+      row: SchoolGirlSpriteSheet.walkUpAnimationRowIndex,
       stepTime: _animationSpeed,
     );
 
