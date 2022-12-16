@@ -22,6 +22,7 @@ import '../sprite_animations/girl_pink_component/pink_girl_component.dart';
 import '../sprite_animations/girl_school_component/school_girl_component.dart';
 import '../sprite_animations/girl_throw_snowball_spritesheet/girl_throw_snowball_component.dart';
 import '../sprite_animations/kid_yellow_component/kid_yellow_component.dart';
+import '../sprite_animations/lantern_light/lantern_light_component.dart';
 import '../sprite_animations/newbie_component/newbie_component.dart';
 import '../sprite_animations/newbie_component/newbie_map_tiled_component.dart';
 import '../sprite_animations/traffic_light/traffic_light_component.dart';
@@ -35,7 +36,7 @@ import 'rooms/room404.dart';
 import 'rooms/room405a.dart';
 
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
-  static final Vector2 _newBiePosition = Vector2(2007.21484375, 1313.43755);
+  static final Vector2 _newBiePosition = Vector2(2609.7109375, 1468.265675);
 
   late final Size mapSize;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -71,6 +72,11 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
       ..size = GarlandSpriteSheet.spriteSize,
     BoyWithStickComponent()..position = Vector2(1833.296875, 1439.171925),
     GirlThrowSnowballComponent()..position = Vector2(1980, 1430),
+    LanternLightComponent()..position = Vector2(710.140625, 1364.13676875),
+    LanternLightComponent()..position = Vector2(2390.34765625, 1538.69145625),
+    LanternLightComponent()..position = Vector2(2744.75, 1314.44926875),
+    LanternLightComponent()..position = Vector2(3176.9296875, 1266.7422375),
+    LanternLightComponent()..position = Vector2(3302.28125, 1268.74614375),
   ];
 
   // * Elevator
