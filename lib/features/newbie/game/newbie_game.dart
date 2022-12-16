@@ -9,14 +9,18 @@ import 'package:flutter/material.dart';
 import 'package:tiled/tiled.dart';
 
 import '../../../core_ui/movement_direction.dart';
+import '../sprite_animations/boy_with_stick/boy_with_stick_component.dart';
 import '../sprite_animations/car_ambulance_component/ambulance_car_component.dart';
 import '../sprite_animations/car_police_component/police_car_component.dart';
 import '../sprite_animations/door_elevator_component/door_elevator_sprite_animation.dart';
 import '../sprite_animations/door_elevator_component/elevator_door_component.dart';
+import '../sprite_animations/garland/garland_component.dart';
+import '../sprite_animations/garland/garland_spritesheet.dart';
 import '../sprite_animations/girl_glaucous_component/glaucous_girl_component.dart';
 import '../sprite_animations/girl_lilac_component/girl_lilac_component.dart';
 import '../sprite_animations/girl_pink_component/pink_girl_component.dart';
 import '../sprite_animations/girl_school_component/school_girl_component.dart';
+import '../sprite_animations/girl_throw_snowball_spritesheet/girl_throw_snowball_component.dart';
 import '../sprite_animations/kid_yellow_component/kid_yellow_component.dart';
 import '../sprite_animations/newbie_component/newbie_component.dart';
 import '../sprite_animations/newbie_component/newbie_map_tiled_component.dart';
@@ -25,8 +29,14 @@ import '../sprite_animations/tree_spritesheet_component/tree_component.dart';
 import '../sprites/floor_indicator_component/floor_indicator_component.dart';
 import 'floor_manager.dart';
 import 'init_app_joystick.dart';
+import 'rooms/elevator_room.dart';
+import 'rooms/room401.dart';
+import 'rooms/room404.dart';
+import 'rooms/room405a.dart';
 
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
+  static final Vector2 _newBiePosition = Vector2(2007.21484375, 1313.43755);
+
   late final Size mapSize;
   MovementDirection collisionDirection = MovementDirection.noCollision;
   MovementDirection georgeMovementState = MovementDirection.idle;
@@ -52,9 +62,16 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     TreeComponent()..position = Vector2(2810, 1494),
     TrafficLightComponent()..position = Vector2(236.27734375, 1329.375),
     TrafficLightComponent()..position = Vector2(150.99609375, 1261.2265625),
+    ...room401Components,
+    ...room404Components,
+    ...room405aComponents,
+    ...elevatorRoomComponents,
+    GarlandComponent()
+      ..position = Vector2(1131.12890625, 1069.8671875)
+      ..size = GarlandSpriteSheet.spriteSize,
+    BoyWithStickComponent()..position = Vector2(1833.296875, 1439.171925),
+    GirlThrowSnowballComponent()..position = Vector2(1980, 1430),
   ];
-
-  static final Vector2 _newBiePosition = Vector2(1231.80859375, 1562.89453125);
 
   // * Elevator
 
@@ -74,11 +91,13 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+
     final TiledComponent newbieMap = await TiledComponent.load(
       NewbieMapTiledComponent.path,
       NewbieMapTiledComponent.tileSize,
     );
     await add(newbieMap);
+
     final TiledMap tiledMap = newbieMap.tileMap.map;
     mapSize = Size(
       tiledMap.width * NewbieMapTiledComponent.tileSize[0],
