@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:tiled/tiled.dart';
 
 import '../../../core_ui/movement_direction.dart';
+import '../sprite_animations/bird/bird_component.dart';
 import '../sprite_animations/rabbit/rabbit_component.dart';
 import '../sprite_animations/sprite_animations.dart';
 import '../sprites/floor_indicator_component/floor_indicator_component.dart';
@@ -20,7 +21,7 @@ import 'rooms/room404.dart';
 import 'rooms/room405a.dart';
 
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
-  static final Vector2 _newBiePosition = Vector2(3202.17578125, 1657.39453125);
+  static final Vector2 _newBiePosition = Vector2(991.65234375, 1389.08208125);
 
   late final Size mapSize;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -75,6 +76,14 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     RabbitComponent(initialePosition: Vector2(991.65234375, 1389.08208125)),
     RabbitComponent(initialePosition: Vector2(1384.265625, 1601.2578625)),
     //
+    BirdComponent(initialePosition: Vector2(601.4765625, 1442.2188)),
+    BirdComponent(initialePosition: Vector2(1129.23046875, 1573.4297375)),
+    BirdComponent(initialePosition: Vector2(1622.72265625, 1097.4805187)),
+    BirdComponent(initialePosition: Vector2(2979.97265625, 1489.4766125)),
+    BirdComponent(initialePosition: Vector2(3738.26953125, 1730.51953125)),
+    BirdComponent(initialePosition: Vector2(3973.4296875, 1601.85551875)),
+    BirdComponent(initialePosition: Vector2(2222.796875, 1318.3359875)),
+    BirdComponent(initialePosition: Vector2(2222.796875, 1318.3359875)),
     LanternLightComponent()..position = Vector2(310.30859375, 1727.984375),
     LanternLightComponent()..position = Vector2(317.0625, 1715.22265625),
     LanternLightComponent()..position = Vector2(324.2421875, 1726.921875),
