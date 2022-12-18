@@ -5,7 +5,9 @@ import 'package:flame/palette.dart';
 import 'package:flutter/material.dart';
 
 class DialogComponent extends TextBoxComponent {
-  static const double _timePerChar = 0.1;
+  static const double _timePerChar = 0.04;
+
+  static const double _dialogWidth = 160;
 
   DialogComponent({super.text, super.position})
       : super(
@@ -18,14 +20,14 @@ class DialogComponent extends TextBoxComponent {
             ),
           ),
           boxConfig: TextBoxConfig(
-            maxWidth: 100,
+            maxWidth: _dialogWidth,
             timePerChar: _timePerChar,
           ),
         );
 
   @override
   void drawBackground(Canvas c) {
-    const Rect rect = Rect.fromLTWH(0, 0, 100, 100);
+    const Rect rect = Rect.fromLTWH(0, 0, _dialogWidth, 100);
     c.drawRect(rect, Paint()..color = Colors.black.withOpacity(0.7));
   }
 

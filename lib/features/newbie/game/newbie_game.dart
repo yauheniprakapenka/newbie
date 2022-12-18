@@ -11,7 +11,9 @@ import 'package:tiled/tiled.dart';
 import '../../../core_ui/dialog_component.dart';
 import '../../../core_ui/movement_direction.dart';
 import '../obstacles/get_main_door_to_building_obstacle.dart';
+import '../sprite_animations/blue_boy/blue_boy_component.dart';
 import '../sprite_animations/brown_boy/brown_boy_component.dart';
+import '../sprite_animations/orange_boy/orange_boy_component.dart';
 import '../sprite_animations/rabbit/rabbit_component.dart';
 import '../sprite_animations/sprite_animations.dart';
 import '../sprites/floor_indicator_component/floor_indicator_component.dart';
@@ -27,7 +29,7 @@ import 'rooms/room405a.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(3123.80859375, 445.82421875);
+  static final Vector2 _newBiePosition = Vector2(2746.14453125, 420.06640625);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -72,6 +74,8 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     ...getBirdComponents,
     ...getLanternLightComponents,
     BrownBoyComponent()..position = Vector2(3109.32421875, 204.078125),
+    OrangeBoyComponent()..position = Vector2(3734.3359375, 773.08203125),
+    BlueBoyComponent()..position = Vector2(2646.14453125, 420.06640625),
   ];
 
   // * Elevator
@@ -192,7 +196,6 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
           _needUpdateDoorAnimation = true;
           break;
       }
-      // print('событие ${floorModel.toString()}');
       _updateFloorIndicators();
     });
   }
@@ -203,19 +206,15 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
       switch (_elevatorDoorState) {
         case ElevatorDoorState.isOpening:
           _elevatorDoor.animation = _openingDoorAnimation;
-          // print('_openingDoorAnimation');
           break;
         case ElevatorDoorState.isClosing:
           _elevatorDoor.animation = _closingDoorAnimation;
-          // print('_closingDoorAnimation');
           break;
         case ElevatorDoorState.closed:
           _elevatorDoor.animation = _idleClosedDoorAnimation;
-          // print('_idleClosedDoorAnimation');
           break;
         case ElevatorDoorState.opened:
           _elevatorDoor.animation = _idleOpenedDoorAnimation;
-          // print('_idleOpenedDoorAnimation');
           break;
       }
     }

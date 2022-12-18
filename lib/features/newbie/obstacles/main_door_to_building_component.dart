@@ -13,7 +13,6 @@ class MainDoorToBuildingComponent extends PositionComponent
 
   @override
   Future<void> onLoad() async {
-    debugMode = true;
     await super.onLoad();
   }
 
