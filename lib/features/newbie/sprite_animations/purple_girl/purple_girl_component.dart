@@ -5,30 +5,26 @@ import 'package:flame/sprite.dart';
 import '../../../../core_ui/movement_direction.dart';
 import '../../game/newbie_game.dart';
 import '../newbie_component/newbie_component.dart';
-import 'orange_boy_spritesheet.dart';
+import 'purple_girl_spritesheet.dart';
 
-class OrangeBoyComponent extends SpriteAnimationComponent
+class PurpleGirlComponent extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<NewbieGame> {
-  final String dialog;
-
-  OrangeBoyComponent({
-    required this.dialog,
-  }) {
+  PurpleGirlComponent() {
     add(RectangleHitbox());
   }
   @override
   Future<void> onLoad() async {
     final SpriteSheet spriteSheet = SpriteSheet(
-      image: await gameRef.images.load(OrangeBoySpriteSheet.imagePath),
-      srcSize: OrangeBoySpriteSheet.spriteSize,
+      image: await gameRef.images.load(PurpleGirlSpriteSheet.imagePath),
+      srcSize: PurpleGirlSpriteSheet.spriteSize,
     );
 
     animation = spriteSheet.createAnimation(
       row: 0,
-      to: OrangeBoySpriteSheet.numberOfSprites,
+      to: PurpleGirlSpriteSheet.numberOfSprites,
       stepTime: 0.4,
     );
-    size = OrangeBoySpriteSheet.spriteSize / 2.3;
+    size = PurpleGirlSpriteSheet.spriteSize / 1.8;
     anchor = Anchor.center;
 
     await super.onLoad();
@@ -39,7 +35,7 @@ class OrangeBoyComponent extends SpriteAnimationComponent
     if (other is NewbieComponent) {
       gameRef.collisionDirection = gameRef.newbieMovementState;
       gameRef.showDialogByPosition(
-        dialog,
+        'Какой статус?',
         position - Vector2(0, 44),
       );
     }

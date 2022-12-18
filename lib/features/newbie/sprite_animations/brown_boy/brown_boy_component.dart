@@ -9,7 +9,13 @@ import 'brown_boy_spritesheet.dart';
 
 class BrownBoyComponent extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<NewbieGame> {
-  BrownBoyComponent() {
+  final String dialog;
+  final MovementDirection? direction;
+
+  BrownBoyComponent({
+    required this.dialog,
+    this.direction,
+  }) {
     add(RectangleHitbox());
   }
   @override
@@ -27,6 +33,10 @@ class BrownBoyComponent extends SpriteAnimationComponent
     size = BrownBoySpriteSheet.spriteSize / 2.3;
     anchor = Anchor.center;
 
+    if (direction == MovementDirection.walkLeft) {
+      flipHorizontally();
+    }
+
     await super.onLoad();
   }
 
@@ -35,7 +45,7 @@ class BrownBoyComponent extends SpriteAnimationComponent
     if (other is NewbieComponent) {
       gameRef.collisionDirection = gameRef.newbieMovementState;
       gameRef.showDialogByPosition(
-        'Уходи',
+        dialog,
         position - Vector2(0, 44),
       );
     }
