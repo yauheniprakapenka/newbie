@@ -8,13 +8,15 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/material.dart';
 import 'package:tiled/tiled.dart';
 
+import '../../../core_ui/dialog_component.dart';
 import '../../../core_ui/movement_direction.dart';
 import '../obstacles/get_main_door_to_building_obstacle.dart';
-import '../sprite_animations/bird/bird_component.dart';
+import '../sprite_animations/brown_boy/brown_boy_component.dart';
 import '../sprite_animations/rabbit/rabbit_component.dart';
 import '../sprite_animations/sprite_animations.dart';
 import '../sprites/floor_indicator_component/floor_indicator_component.dart';
-import 'components/lantern_light_components.dart';
+import 'configured_components/birds_components.dart';
+import 'configured_components/lantern_light_components.dart';
 import 'floor_manager.dart';
 import 'init_app_joystick.dart';
 import 'rooms/elevator_room.dart';
@@ -23,12 +25,15 @@ import 'rooms/room404.dart';
 import 'rooms/room405a.dart';
 
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
-  static final Vector2 _newBiePosition = Vector2(991.65234375, 1389.08208125);
-  late final NewbieComponent newbie;
+  // * Newbie
 
-  late final Size mapSize;
-  MovementDirection collisionDirection = MovementDirection.noCollision;
+  static final Vector2 _newBiePosition = Vector2(3123.80859375, 445.82421875);
+  late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
+  MovementDirection collisionDirection = MovementDirection.noCollision;
+
+  // * Map
+  late final Size mapSize;
 
   // * Components
 
@@ -61,21 +66,12 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     BoyWithStickComponent()..position = Vector2(1833.296875, 1439.171925),
     GirlThrowSnowballComponent()..position = Vector2(1980, 1430),
     SantaClausComponent()..position = Vector2(1033.1171875, 1119.6016125),
-
     RabbitComponent(initialePosition: Vector2(492.0625, 1547.25395625)),
     RabbitComponent(initialePosition: Vector2(991.65234375, 1389.08208125)),
     RabbitComponent(initialePosition: Vector2(1384.265625, 1601.2578625)),
-    //
-    BirdComponent(initialePosition: Vector2(601.4765625, 1442.2188)),
-    BirdComponent(initialePosition: Vector2(1129.23046875, 1573.4297375)),
-    BirdComponent(initialePosition: Vector2(1622.72265625, 1097.4805187)),
-    BirdComponent(initialePosition: Vector2(2979.97265625, 1489.4766125)),
-    BirdComponent(initialePosition: Vector2(3738.26953125, 1730.51953125)),
-    BirdComponent(initialePosition: Vector2(3973.4296875, 1601.85551875)),
-    BirdComponent(initialePosition: Vector2(2222.796875, 1318.3359875)),
-    BirdComponent(initialePosition: Vector2(2222.796875, 1318.3359875)),
-
+    ...getBirdComponents,
     ...getLanternLightComponents,
+    BrownBoyComponent()..position = Vector2(3109.32421875, 204.078125),
   ];
 
   // * Elevator
@@ -92,6 +88,16 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
   bool _needUpdateDoorAnimation = true;
 
   NewbieGame({required FloorManager floorManager}) : _floorManager = floorManager;
+
+  // * Toast messgae
+
+  Future<void> showDialogByPosition(String message, Vector2 position) async {
+    final DialogComponent dialogComponent = DialogComponent(text: message, position: position)
+      ..position = position;
+    await add(dialogComponent);
+  }
+
+  // * Lifecycle
 
   @override
   Future<void> onLoad() async {

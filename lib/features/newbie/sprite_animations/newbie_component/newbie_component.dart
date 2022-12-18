@@ -15,13 +15,12 @@ class NewbieComponent extends SpriteAnimationComponent
   late final SpriteAnimation _walkUp;
   late final SpriteAnimation _idle;
 
-  static const double _speed = 9.5;
+  static const double _speed = 4.5;
   static const double _stepTime = 0.2;
   static const double _relationToSpriteSize = 0.7;
   static const int _desiredNumberOfnumberOfSpritesForIdleAnimation = 1;
-  static const double _sizeMultiplier = 1;
 
-  Vector2 get _componentSize => NewbieSpriteSheet.spriteSize * _sizeMultiplier;
+  Vector2 get _componentSize => NewbieSpriteSheet.spriteSize * 0.85;
 
   NewbieComponent() {
     add(

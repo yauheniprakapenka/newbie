@@ -4,8 +4,8 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.18.4 <3.0.0"
-  flutter: ">=3.3.8"
+  sdk: ">=2.18.5 <3.0.0"
+  flutter: ">=3.3.9"
 
 dependencies:
   flutter:
@@ -30,3 +30,8 @@ flutter:
     - assets/images/newbie/map/
     - assets/images/newbie/map/components/
     - assets/images/components/joystick_buttons/
+
+  fonts:
+    - family: vt323
+      fonts:
+        - asset: assets/fonts/vt323/VT323-Regular.ttf

@@ -1,3 +1,4 @@
+export '../tiled_maps/newbie_map_tiled_component.dart';
 export 'boy_with_stick/boy_with_stick_component.dart';
 export 'boy_with_stick/boy_with_stick_spritesheet.dart';
 export 'car_ambulance_component/ambulance_car_component.dart';
@@ -30,7 +31,6 @@ export 'lantern_light/lantern_light_spritesheet.dart';
 export 'light_component/light_component.dart';
 export 'light_component/light_spritesheet.dart';
 export 'newbie_component/newbie_component.dart';
-export '../tiled_maps/newbie_map_tiled_component.dart';
 export 'newbie_component/newbie_sprite_sheet.dart';
 export 'santa_claus/santa_claus_component.dart';
 export 'santa_claus/santa_claus_spritesheet.dart';

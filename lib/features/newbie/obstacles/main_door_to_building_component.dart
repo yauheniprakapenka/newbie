@@ -6,7 +6,7 @@ import '../game/newbie_game.dart';
 import '../sprite_animations/sprite_animations.dart';
 
 class MainDoorToBuildingComponent extends PositionComponent
-    with GestureHitboxes, CollisionCallbacks, HasGameRef<NewbieGame> {
+    with CollisionCallbacks, HasGameRef<NewbieGame> {
   MainDoorToBuildingComponent() {
     add(RectangleHitbox());
   }
