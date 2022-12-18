@@ -16,6 +16,7 @@ class OrangeBoyComponent extends SpriteAnimationComponent
   }) {
     add(RectangleHitbox());
   }
+  
   @override
   Future<void> onLoad() async {
     final SpriteSheet spriteSheet = SpriteSheet(

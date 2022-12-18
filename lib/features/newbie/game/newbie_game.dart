@@ -12,6 +12,7 @@ import '../../../core_ui/dialog_component.dart';
 import '../../../core_ui/movement_direction.dart';
 import '../obstacles/get_main_door_to_building_obstacle.dart';
 import '../sprite_animations/blue_boy/blue_boy_component.dart';
+import '../sprite_animations/figure_skates_girl/figure_skates_girl_component.dart';
 import '../sprite_animations/green_girl/green_girl_component.dart';
 import '../sprite_animations/purple_girl/purple_girl_component.dart';
 import '../sprite_animations/rabbit/rabbit_component.dart';
@@ -31,7 +32,7 @@ import 'sprites/info_component/info_component.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(3304.89453125, 217.2813000000001);
+  static final Vector2 _newBiePosition = Vector2(3132.7109375, 1314.4688);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -84,6 +85,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     PurpleGirlComponent()..position = Vector2(1779.19921875, 876.39453125),
     ...getBoyComponents,
     InfoComponent(dialog: 'Здесь сидел Артем Ходос')..position = Vector2(3303.01953125, 293.171875),
+    FigureSkatesGirlComponent(initialePosition: Vector2(3210, 1557.87505)),
   ];
 
   // * Elevator
