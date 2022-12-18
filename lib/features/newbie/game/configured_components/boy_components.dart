@@ -29,9 +29,6 @@ final List<SpriteAnimationComponent> getBoyComponents = [
     dialog: 'Не забудь забрать еду из холодильника',
   )..position = Vector2(2646.14453125, 420.06640625),
   BlueBoyComponent(
-    dialog: 'Здесь сидел Артем Ходос',
-  )..position = Vector2(3303.01953125, 293.171875),
-  BlueBoyComponent(
     dialog: 'Я бы начал волноваться. Все таки пятница вечер.',
   )..position = Vector2(3480.7265625, 722.0000500000001),
 ];

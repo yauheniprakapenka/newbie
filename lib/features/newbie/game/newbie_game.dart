@@ -26,11 +26,12 @@ import 'rooms/elevator_room.dart';
 import 'rooms/room401.dart';
 import 'rooms/room404.dart';
 import 'rooms/room405a.dart';
+import 'sprites/info_component/info_component.dart';
 
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(3304.89453125,217.2813000000001);
+  static final Vector2 _newBiePosition = Vector2(3304.89453125, 217.2813000000001);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -40,7 +41,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
 
   // * Components
 
-  final List<SpriteAnimationComponent> _components = [
+  final List<PositionComponent> _components = [
     AmbulanceCarComponent()..position = Vector2(250, 1000),
     PoliceCarComponent()..position = Vector2(250, 1100),
     KidYellowComponent()..position = Vector2(1642.7578125, 1471.828125),
@@ -82,6 +83,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
       ..position = Vector2(1465.81640625, 413.74609375),
     PurpleGirlComponent()..position = Vector2(1779.19921875, 876.39453125),
     ...getBoyComponents,
+    InfoComponent(dialog: 'Здесь сидел Артем Ходос')..position = Vector2(3303.01953125, 293.171875),
   ];
 
   // * Elevator
