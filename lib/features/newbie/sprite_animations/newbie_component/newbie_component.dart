@@ -50,7 +50,7 @@ class NewbieComponent extends SpriteAnimationComponent
 
   void _updateMovement() {
     animation = _idle;
-    switch (gameRef.georgeMovementState) {
+    switch (gameRef.newbieMovementState) {
       case MovementDirection.walkDown:
         if (y < gameRef.mapSize.height - height) {
           if (gameRef.collisionDirection != MovementDirection.walkDown) {

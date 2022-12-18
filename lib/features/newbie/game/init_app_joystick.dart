@@ -14,10 +14,10 @@ Future<void> initAppJoystick(NewbieGame game) async {
       margin: const EdgeInsets.only(left: 120, bottom: 120),
       sprite: await Sprite.load(JoystickImages.buttonUp),
       onPressed: () {
-        game.georgeMovementState = MovementDirection.walkUp;
+        game.newbieMovementState = MovementDirection.walkUp;
       },
       onReleased: () {
-        game.georgeMovementState = MovementDirection.idle;
+        game.newbieMovementState = MovementDirection.idle;
       },
     ),
   ));
@@ -27,10 +27,10 @@ Future<void> initAppJoystick(NewbieGame game) async {
       margin: const EdgeInsets.only(left: 40, bottom: 40),
       sprite: await Sprite.load(JoystickImages.buttonLeft),
       onPressed: () {
-        game.georgeMovementState = MovementDirection.walkLeft;
+        game.newbieMovementState = MovementDirection.walkLeft;
       },
       onReleased: () {
-        game.georgeMovementState = MovementDirection.idle;
+        game.newbieMovementState = MovementDirection.idle;
       },
     ),
   ));
@@ -40,10 +40,10 @@ Future<void> initAppJoystick(NewbieGame game) async {
       margin: const EdgeInsets.only(left: 120, bottom: 40),
       sprite: await Sprite.load(JoystickImages.buttonDown),
       onPressed: () {
-        game.georgeMovementState = MovementDirection.walkDown;
+        game.newbieMovementState = MovementDirection.walkDown;
       },
       onReleased: () {
-        game.georgeMovementState = MovementDirection.idle;
+        game.newbieMovementState = MovementDirection.idle;
       },
     ),
   ));
@@ -53,10 +53,10 @@ Future<void> initAppJoystick(NewbieGame game) async {
       margin: const EdgeInsets.only(left: 200, bottom: 40),
       sprite: await Sprite.load(JoystickImages.buttonRight),
       onPressed: () {
-        game.georgeMovementState = MovementDirection.walkRight;
+        game.newbieMovementState = MovementDirection.walkRight;
       },
       onReleased: () {
-        game.georgeMovementState = MovementDirection.idle;
+        game.newbieMovementState = MovementDirection.idle;
       },
     ),
   ));

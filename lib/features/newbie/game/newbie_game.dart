@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:tiled/tiled.dart';
 
 import '../../../core_ui/movement_direction.dart';
+import '../obstacles/get_main_door_to_building_obstacle.dart';
 import '../sprite_animations/bird/bird_component.dart';
 import '../sprite_animations/rabbit/rabbit_component.dart';
 import '../sprite_animations/sprite_animations.dart';
@@ -22,10 +23,11 @@ import 'rooms/room405a.dart';
 
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   static final Vector2 _newBiePosition = Vector2(991.65234375, 1389.08208125);
+  late final NewbieComponent newbie;
 
   late final Size mapSize;
   MovementDirection collisionDirection = MovementDirection.noCollision;
-  MovementDirection georgeMovementState = MovementDirection.idle;
+  MovementDirection newbieMovementState = MovementDirection.idle;
 
   // * Components
 
@@ -57,7 +59,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
       ..size = GarlandSpriteSheet.spriteSize,
     BoyWithStickComponent()..position = Vector2(1833.296875, 1439.171925),
     GirlThrowSnowballComponent()..position = Vector2(1980, 1430),
-    SantaClausComponent()..position = Vector2(1219.1171875, 1119.6016125),
+    SantaClausComponent()..position = Vector2(1033.1171875, 1119.6016125),
     LanternLightComponent()..position = Vector2(710.140625, 1364.13676875),
     LanternLightComponent()..position = Vector2(2390.34765625, 1538.69145625),
     LanternLightComponent()..position = Vector2(2744.75, 1314.44926875),
@@ -84,6 +86,8 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     BirdComponent(initialePosition: Vector2(3973.4296875, 1601.85551875)),
     BirdComponent(initialePosition: Vector2(2222.796875, 1318.3359875)),
     BirdComponent(initialePosition: Vector2(2222.796875, 1318.3359875)),
+
+    ///
     LanternLightComponent()..position = Vector2(310.30859375, 1727.984375),
     LanternLightComponent()..position = Vector2(317.0625, 1715.22265625),
     LanternLightComponent()..position = Vector2(324.2421875, 1726.921875),
@@ -175,7 +179,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     final Rect worldBounds = Rect.fromLTRB(0, 0, mapSize.width, mapSize.height);
     await addAll(_components);
 
-    final NewbieComponent newbie = NewbieComponent()..position = _newBiePosition;
+    newbie = NewbieComponent()..position = _newBiePosition;
     await add(newbie);
     camera.followComponent(newbie, worldBounds: worldBounds);
 
@@ -185,6 +189,8 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
 
     unawaited(_floorManager.start());
     await _initializeElevatorDoor();
+
+    await add(await getMainDoorToBuildingObstacle(tiledMap: newbieMap));
   }
 
   @override
