@@ -9,7 +9,13 @@ import 'green_girl_spritesheet.dart';
 
 class GreenGirlComponent extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<NewbieGame> {
-  GreenGirlComponent() {
+  final String dialog;
+  final MovementDirection? direction;
+
+  GreenGirlComponent({
+    required this.dialog,
+    this.direction,
+  }) {
     add(RectangleHitbox());
   }
   @override
@@ -26,7 +32,10 @@ class GreenGirlComponent extends SpriteAnimationComponent
     );
     size = GreenGirlSpriteSheet.spriteSize / 1.8;
     anchor = Anchor.center;
-    flipHorizontally();
+
+    if (direction == MovementDirection.walkLeft) {
+      flipHorizontally();
+    }
 
     await super.onLoad();
   }
@@ -36,7 +45,7 @@ class GreenGirlComponent extends SpriteAnimationComponent
     if (other is NewbieComponent) {
       gameRef.collisionDirection = gameRef.newbieMovementState;
       gameRef.showDialogByPosition(
-        'Есть кто из разработчиков на примете?',
+        dialog,
         position - Vector2(0, 44),
       );
     }

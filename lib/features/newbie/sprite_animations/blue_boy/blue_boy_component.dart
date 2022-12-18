@@ -9,7 +9,9 @@ import 'blue_boy_spritesheet.dart';
 
 class BlueBoyComponent extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<NewbieGame> {
-  BlueBoyComponent() {
+  final String dialog;
+
+  BlueBoyComponent({required this.dialog}) {
     add(RectangleHitbox());
   }
   @override
@@ -35,7 +37,7 @@ class BlueBoyComponent extends SpriteAnimationComponent
     if (other is NewbieComponent) {
       gameRef.collisionDirection = gameRef.newbieMovementState;
       gameRef.showDialogByPosition(
-        'Не забудь забрать еду из холодильника',
+        dialog,
         position - Vector2(0, 44),
       );
     }

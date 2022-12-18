@@ -35,7 +35,7 @@ class PurpleGirlComponent extends SpriteAnimationComponent
     if (other is NewbieComponent) {
       gameRef.collisionDirection = gameRef.newbieMovementState;
       gameRef.showDialogByPosition(
-        'Какой статус?',
+        'Что по статусу?',
         position - Vector2(0, 44),
       );
     }

@@ -12,14 +12,13 @@ import '../../../core_ui/dialog_component.dart';
 import '../../../core_ui/movement_direction.dart';
 import '../obstacles/get_main_door_to_building_obstacle.dart';
 import '../sprite_animations/blue_boy/blue_boy_component.dart';
-import '../sprite_animations/brown_boy/brown_boy_component.dart';
 import '../sprite_animations/green_girl/green_girl_component.dart';
-import '../sprite_animations/orange_boy/orange_boy_component.dart';
 import '../sprite_animations/purple_girl/purple_girl_component.dart';
 import '../sprite_animations/rabbit/rabbit_component.dart';
 import '../sprite_animations/sprite_animations.dart';
 import '../sprites/floor_indicator_component/floor_indicator_component.dart';
 import 'configured_components/birds_components.dart';
+import 'configured_components/boy_components.dart';
 import 'configured_components/lantern_light_components.dart';
 import 'floor_manager.dart';
 import 'init_app_joystick.dart';
@@ -31,7 +30,7 @@ import 'rooms/room405a.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(3719.48828125, 721.53515625);
+  static final Vector2 _newBiePosition = Vector2(3304.89453125,217.2813000000001);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -75,17 +74,14 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     RabbitComponent(initialePosition: Vector2(1384.265625, 1601.2578625)),
     ...getBirdComponents,
     ...getLanternLightComponents,
-    BrownBoyComponent(dialog: 'Уходи')..position = Vector2(3109.32421875, 204.078125),
-    BrownBoyComponent(
-      dialog: 'Dear Sirs and Madams, best regards',
+    GreenGirlComponent(
+      dialog: 'Есть кто из разработчиков на примете?',
       direction: MovementDirection.walkLeft,
-    )..position = Vector2(3812.828125, 725.328125),
-    OrangeBoyComponent(dialog: 'Не работает принтер в галерее?')
-      ..position = Vector2(3734.3359375, 773.08203125),
-    OrangeBoyComponent(dialog: 'Теща - это святое')..position = Vector2(3033.9921875, 332.0390625),
-    BlueBoyComponent()..position = Vector2(2646.14453125, 420.06640625),
-    GreenGirlComponent()..position = Vector2(4002.359375, 665.15234375),
+    )..position = Vector2(4002.359375, 665.15234375),
+    GreenGirlComponent(dialog: 'Подойди расписаться')
+      ..position = Vector2(1465.81640625, 413.74609375),
     PurpleGirlComponent()..position = Vector2(1779.19921875, 876.39453125),
+    ...getBoyComponents,
   ];
 
   // * Elevator
