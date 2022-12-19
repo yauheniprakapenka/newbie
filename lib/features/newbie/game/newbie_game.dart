@@ -10,7 +10,8 @@ import 'package:tiled/tiled.dart';
 
 import '../../../core_ui/dialog_component.dart';
 import '../../../core_ui/movement_direction.dart';
-import '../obstacles/get_main_door_to_building_obstacle.dart';
+import '../obstacles/elevator/get_elevator_obstacle.dart';
+import '../obstacles/main_door_in_building/get_main_door_to_building_obstacle.dart';
 import '../sprite_animations/figure_skates_girl/figure_skates_girl_component.dart';
 import '../sprite_animations/green_girl/green_girl_component.dart';
 import '../sprite_animations/purple_girl/purple_girl_component.dart';
@@ -31,7 +32,7 @@ import 'sprites/info_component/info_component.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(478.9296875,782.8867687500001);
+  static final Vector2 _newBiePosition = Vector2(478.9296875, 782.8867687500001);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -144,6 +145,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     await _initializeElevatorDoor();
 
     await add(await getMainDoorToBuildingObstacle(tiledMap: newbieMap));
+    await addAll(getElevatorObstacle(tiledMap: newbieMap));
   }
 
   @override
