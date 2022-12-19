@@ -3,6 +3,7 @@ import 'package:flame/components.dart';
 import '../../../../core_ui/movement_direction.dart';
 import '../../sprite_animations/blue_boy/blue_boy_component.dart';
 import '../../sprite_animations/brown_boy/brown_boy_component.dart';
+import '../../sprite_animations/old_man/old_man_component.dart';
 import '../../sprite_animations/orange_boy/orange_boy_component.dart';
 
 final List<SpriteAnimationComponent> getBoyComponents = [
@@ -31,4 +32,15 @@ final List<SpriteAnimationComponent> getBoyComponents = [
   BlueBoyComponent(
     dialog: 'Я бы начал волноваться. Все таки пятница вечер.',
   )..position = Vector2(3480.7265625, 722.0000500000001),
+  OldManComponent()..position = Vector2(3129.625, 1311.43364375),
+  BlueBoyComponent(
+    dialog: 'Я думал, нетворкинг - это когда отказываешься работать',
+  )..position = Vector2(1459.69921875, 820.8086437500001),
+  OrangeBoyComponent(
+    dialog:
+        'Посмотрел я на мобильных разработчиков: целый день за компьютером сидят не вставая, очень мобильно',
+  )..position = Vector2(1458.171875, 886.1641125000001),
+  BlueBoyComponent(
+    dialog: '-Вы курите? -Только когда пишу юнит тесты -Ваши легкие полностью здоровы',
+  )..position = Vector2(540.84765625, 893.9375500000001),
 ];

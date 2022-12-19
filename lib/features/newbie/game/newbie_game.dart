@@ -11,7 +11,6 @@ import 'package:tiled/tiled.dart';
 import '../../../core_ui/dialog_component.dart';
 import '../../../core_ui/movement_direction.dart';
 import '../obstacles/get_main_door_to_building_obstacle.dart';
-import '../sprite_animations/blue_boy/blue_boy_component.dart';
 import '../sprite_animations/figure_skates_girl/figure_skates_girl_component.dart';
 import '../sprite_animations/green_girl/green_girl_component.dart';
 import '../sprite_animations/purple_girl/purple_girl_component.dart';
@@ -32,7 +31,7 @@ import 'sprites/info_component/info_component.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(3132.7109375, 1314.4688);
+  static final Vector2 _newBiePosition = Vector2(478.9296875,782.8867687500001);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -77,15 +76,18 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     ...getBirdComponents,
     ...getLanternLightComponents,
     GreenGirlComponent(
-      dialog: 'Есть кто из разработчиков на примете?',
+      dialog:
+          'На почте лежит резюме от разработчика с фамилией Мамкин. Хочу, чтобы Мамкин программист работал у нас. Берем без собеса.',
       direction: MovementDirection.walkLeft,
     )..position = Vector2(4002.359375, 665.15234375),
-    GreenGirlComponent(dialog: 'Подойди расписаться')
-      ..position = Vector2(1465.81640625, 413.74609375),
+    GreenGirlComponent(
+      dialog: '-А эти жуки... -Баги -Хорошо, баги. Они сейчас здесь, с тобой в этой комнате?',
+      direction: MovementDirection.walkLeft,
+    )..position = Vector2(1572.05078125, 850.4180187500001),
     PurpleGirlComponent()..position = Vector2(1779.19921875, 876.39453125),
     ...getBoyComponents,
     InfoComponent(dialog: 'Здесь сидел Артем Ходос')..position = Vector2(3303.01953125, 293.171875),
-    FigureSkatesGirlComponent(initialePosition: Vector2(3210, 1557.87505)),
+    FigureSkatesGirlComponent(initialePosition: Vector2(3210, 1552.87505)),
   ];
 
   // * Elevator
@@ -106,8 +108,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
   // * Toast messgae
 
   Future<void> showDialogByPosition(String message, Vector2 position) async {
-    final DialogComponent dialogComponent = DialogComponent(text: message, position: position)
-      ..position = position;
+    final DialogComponent dialogComponent = DialogComponent(text: message, position: position);
     await add(dialogComponent);
   }
 
