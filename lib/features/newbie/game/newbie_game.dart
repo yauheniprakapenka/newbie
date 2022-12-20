@@ -28,13 +28,14 @@ import 'rooms/elevator_room.dart';
 import 'rooms/room401.dart';
 import 'rooms/room404.dart';
 import 'rooms/room405a.dart';
+import 'rooms/room415v.dart';
 import 'sprites/info_component/info_component.dart';
 import 'sprites/java_image_component.dart';
 
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(4044.08984375, 642.84375);
+  static final Vector2 _newBiePosition = Vector2(3585.12109375, 449.44921875);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -100,6 +101,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     FigureSkatesGirlComponent(initialePosition: Vector2(3210, 1552.87505)),
     JavaImageComponent()..position = Vector2(4285.359375, 560.5195812500001),
     ...conferenceRoomComponents,
+    ...room415vComponents,
     LanternLightComponent()..position = Vector2(2940.015625, 365.8594250000001),
     LanternLightComponent()..position = Vector2(2700.92578125, 495.2148937500001),
     LanternLightComponent()..position = Vector2(3561.44140625, 365.8516125000001),

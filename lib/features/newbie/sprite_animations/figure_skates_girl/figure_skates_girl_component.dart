@@ -11,7 +11,9 @@ class FigureSkatesGirlComponent extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<NewbieGame> {
   late final SpriteAnimation _walkLeftAnimation;
   late final SpriteAnimation _walkRightAnimation;
+  
   MovementDirection _movementDirection = MovementDirection.walkLeft;
+
   static const double _animationSpeed = 0.5;
   static const double _movementSpeed = 0.5;
 
