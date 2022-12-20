@@ -11,16 +11,16 @@ class BlueBoyComponent extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<NewbieGame> {
   final MovementDirection? direction;
   final String dialog;
-  final bool respondToCollision;
+  final bool hasCollision;
 
   BlueBoyComponent({
     this.dialog = '',
     this.direction,
-    this.respondToCollision = true,
+    this.hasCollision = true,
   }) {
     add(RectangleHitbox());
   }
-  
+
   @override
   Future<void> onLoad() async {
     final SpriteSheet spriteSheet = SpriteSheet(
@@ -45,7 +45,7 @@ class BlueBoyComponent extends SpriteAnimationComponent
 
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
-    if (respondToCollision) {
+    if (hasCollision) {
       if (other is NewbieComponent) {
         gameRef.collisionDirection = gameRef.newbieMovementState;
         gameRef.showDialogByPosition(
@@ -59,7 +59,7 @@ class BlueBoyComponent extends SpriteAnimationComponent
 
   @override
   void onCollisionEnd(PositionComponent other) {
-    if (respondToCollision) {
+    if (hasCollision) {
       if (other is NewbieComponent) {
         gameRef.collisionDirection = MovementDirection.idle;
       }

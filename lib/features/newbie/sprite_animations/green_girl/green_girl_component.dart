@@ -11,10 +11,12 @@ class GreenGirlComponent extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<NewbieGame> {
   final String dialog;
   final MovementDirection? direction;
+  final bool hasCollision;
 
   GreenGirlComponent({
-    required this.dialog,
+    this.dialog = '',
     this.direction,
+    this.hasCollision = true,
   }) {
     add(RectangleHitbox());
   }
@@ -30,7 +32,7 @@ class GreenGirlComponent extends SpriteAnimationComponent
       to: GreenGirlSpriteSheet.numberOfSprites,
       stepTime: 0.4,
     );
-    size = GreenGirlSpriteSheet.spriteSize / 1.8;
+    size = GreenGirlSpriteSheet.spriteSize * 0.5;
     anchor = Anchor.center;
 
     if (direction == MovementDirection.walkLeft) {
@@ -42,20 +44,24 @@ class GreenGirlComponent extends SpriteAnimationComponent
 
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
-    if (other is NewbieComponent) {
-      gameRef.collisionDirection = gameRef.newbieMovementState;
-      gameRef.showDialogByPosition(
-        dialog,
-        position - Vector2(0, 44),
-      );
+    if (hasCollision) {
+      if (other is NewbieComponent) {
+        gameRef.collisionDirection = gameRef.newbieMovementState;
+        gameRef.showDialogByPosition(
+          dialog,
+          position - Vector2(0, 44),
+        );
+      }
     }
     super.onCollisionStart(intersectionPoints, other);
   }
 
   @override
   void onCollisionEnd(PositionComponent other) {
-    if (other is NewbieComponent) {
-      gameRef.collisionDirection = MovementDirection.idle;
+    if (hasCollision) {
+      if (other is NewbieComponent) {
+        gameRef.collisionDirection = MovementDirection.idle;
+      }
     }
     super.onCollisionEnd(other);
   }
