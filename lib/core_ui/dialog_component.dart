@@ -27,7 +27,7 @@ class DialogComponent extends TextBoxComponent {
 
   @override
   void drawBackground(Canvas c) {
-    const Rect rect = Rect.fromLTWH(0, 0, _dialogWidth, _dialogWidth);
+    const Rect rect = Rect.fromLTWH(0, 0, _dialogWidth, 230);
     c.drawRect(rect, Paint()..color = Colors.black.withOpacity(0.7));
   }
 

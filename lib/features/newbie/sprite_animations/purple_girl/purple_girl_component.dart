@@ -9,7 +9,13 @@ import 'purple_girl_spritesheet.dart';
 
 class PurpleGirlComponent extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<NewbieGame> {
-  PurpleGirlComponent() {
+      final String dialog;
+      final MovementDirection? direction;
+
+  PurpleGirlComponent({
+    required this.dialog,
+    this.direction,
+  }) {
     add(RectangleHitbox());
   }
   @override
@@ -27,6 +33,10 @@ class PurpleGirlComponent extends SpriteAnimationComponent
     size = PurpleGirlSpriteSheet.spriteSize / 1.8;
     anchor = Anchor.center;
 
+    if (direction == MovementDirection.walkLeft) {
+      flipHorizontally();
+    }
+
     await super.onLoad();
   }
 
@@ -35,7 +45,7 @@ class PurpleGirlComponent extends SpriteAnimationComponent
     if (other is NewbieComponent) {
       gameRef.collisionDirection = gameRef.newbieMovementState;
       gameRef.showDialogByPosition(
-        'Что по статусу?',
+       dialog,
         position - Vector2(0, 44),
       );
     }

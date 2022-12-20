@@ -23,16 +23,18 @@ import 'configured_components/boy_components.dart';
 import 'configured_components/lantern_light_components.dart';
 import 'floor_manager.dart';
 import 'init_app_joystick.dart';
+import 'rooms/conference_room.dart';
 import 'rooms/elevator_room.dart';
 import 'rooms/room401.dart';
 import 'rooms/room404.dart';
 import 'rooms/room405a.dart';
 import 'sprites/info_component/info_component.dart';
+import 'sprites/java_image_component.dart';
 
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(478.9296875, 782.8867687500001);
+  static final Vector2 _newBiePosition = Vector2(4044.08984375, 642.84375);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -85,10 +87,34 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
       dialog: '-А эти жуки... -Баги -Хорошо, баги. Они сейчас здесь, с тобой в этой комнате?',
       direction: MovementDirection.walkLeft,
     )..position = Vector2(1572.05078125, 850.4180187500001),
-    PurpleGirlComponent()..position = Vector2(1779.19921875, 876.39453125),
+    PurpleGirlComponent(
+      dialog: 'Что по статусу?',
+    )..position = Vector2(1779.19921875, 876.39453125),
+    PurpleGirlComponent(
+      dialog:
+          '-Бабушка, а ты не видела мой пауербанк? -Лежит на антресоли -А что такое антресоль? - А что такое пауэрбанк?',
+      direction: MovementDirection.walkLeft,
+    )..position = Vector2(1559.40625, 726.9453625000001),
     ...getBoyComponents,
     InfoComponent(dialog: 'Здесь сидел Артем Ходос')..position = Vector2(3303.01953125, 293.171875),
     FigureSkatesGirlComponent(initialePosition: Vector2(3210, 1552.87505)),
+    JavaImageComponent()..position = Vector2(4285.359375, 560.5195812500001),
+    ...conferenceRoomComponents,
+    LanternLightComponent()..position = Vector2(2940.015625, 365.8594250000001),
+    LanternLightComponent()..position = Vector2(2700.92578125, 495.2148937500001),
+    LanternLightComponent()..position = Vector2(3561.44140625, 365.8516125000001),
+    LanternLightComponent()..position = Vector2(1900.76171875, 558.7344250000001),
+    LanternLightComponent()..position = Vector2(1436.22265625, 561.4648937500001),
+    LanternLightComponent()..position = Vector2(451.77734375, 358.0469250000001),
+    LanternLightComponent()..position = Vector2(427.6640625, 854.84765625),
+    LanternLightComponent()..position = Vector2(1474.87890625, 454.21484375),
+    LanternLightComponent()..position = Vector2(1331.87109375, 886.67578125),
+    LanternLightComponent()..position = Vector2(1917.171875, 340.98046875),
+    LanternLightComponent()..position = Vector2(2834.921875, 166.26953125),
+    LanternLightComponent()..position = Vector2(2635.359375, 743.238281255),
+    LanternLightComponent()..position = Vector2(2924.26953125, 646.898437),
+    LanternLightComponent()..position = Vector2(3243.40625, 183.0703125),
+    LanternLightComponent()..position = Vector2(3333.1484375, 566.21875),
   ];
 
   // * Elevator

@@ -9,12 +9,14 @@ import 'brown_boy_spritesheet.dart';
 
 class BrownBoyComponent extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<NewbieGame> {
+ final MovementDirection? direction;
   final String dialog;
-  final MovementDirection? direction;
+  final bool respondToCollision;
 
   BrownBoyComponent({
-    required this.dialog,
+        this.dialog = '',
     this.direction,
+    this.respondToCollision = true,
   }) {
     add(RectangleHitbox());
   }
@@ -42,6 +44,7 @@ class BrownBoyComponent extends SpriteAnimationComponent
 
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
+     if (respondToCollision) {
     if (other is NewbieComponent) {
       gameRef.collisionDirection = gameRef.newbieMovementState;
       gameRef.showDialogByPosition(
@@ -49,6 +52,7 @@ class BrownBoyComponent extends SpriteAnimationComponent
         position - Vector2(0, 44),
       );
     }
+     }
     super.onCollisionStart(intersectionPoints, other);
   }
 

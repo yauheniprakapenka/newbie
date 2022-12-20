@@ -9,14 +9,18 @@ import 'orange_boy_spritesheet.dart';
 
 class OrangeBoyComponent extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<NewbieGame> {
+  final MovementDirection? direction;
   final String dialog;
+  final bool respondToCollision;
 
   OrangeBoyComponent({
-    required this.dialog,
+    this.dialog = '',
+    this.direction,
+    this.respondToCollision = true,
   }) {
     add(RectangleHitbox());
   }
-  
+
   @override
   Future<void> onLoad() async {
     final SpriteSheet spriteSheet = SpriteSheet(
@@ -32,26 +36,36 @@ class OrangeBoyComponent extends SpriteAnimationComponent
     size = OrangeBoySpriteSheet.spriteSize / 2.3;
     anchor = Anchor.center;
 
+    if (direction == MovementDirection.walkLeft) {
+      flipHorizontally();
+    }
+
     await super.onLoad();
   }
 
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
-    if (other is NewbieComponent) {
-      gameRef.collisionDirection = gameRef.newbieMovementState;
-      gameRef.showDialogByPosition(
-        dialog,
-        position - Vector2(0, 44),
-      );
+    if (respondToCollision) {
+      if (other is NewbieComponent) {
+        gameRef.collisionDirection = gameRef.newbieMovementState;
+        gameRef.showDialogByPosition(
+          dialog,
+          position - Vector2(0, 44),
+        );
+      }
     }
     super.onCollisionStart(intersectionPoints, other);
   }
 
   @override
   void onCollisionEnd(PositionComponent other) {
-    if (other is NewbieComponent) {
-      gameRef.collisionDirection = MovementDirection.idle;
+    if (respondToCollision) {
+      if (respondToCollision) {
+        if (other is NewbieComponent) {
+          gameRef.collisionDirection = MovementDirection.idle;
+        }
+        super.onCollisionEnd(other);
+      }
     }
-    super.onCollisionEnd(other);
   }
 }
