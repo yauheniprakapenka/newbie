@@ -5,27 +5,27 @@ import 'package:flame/sprite.dart';
 import '../../../../core_ui/movement_direction.dart';
 import '../../game/newbie_game.dart';
 import '../newbie_component/newbie_component.dart';
-import 'girl_throw_snowball_spritesheet.dart';
+import 'sleeping_cat_spritesheet.dart';
 
-class GirlThrowSnowballComponent extends SpriteAnimationComponent
+class SleepingCatComponent extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameRef<NewbieGame> {
-  GirlThrowSnowballComponent() {
+  SleepingCatComponent() {
     add(RectangleHitbox());
   }
 
   @override
   Future<void> onLoad() async {
     final SpriteSheet spriteSheet = SpriteSheet(
-      image: await gameRef.images.load(GirlThrowSnowballSpriteSheet.imagePath),
-      srcSize: GirlThrowSnowballSpriteSheet.spriteSize,
+      image: await gameRef.images.load(SleepingCatSpriteSheet.imagePath),
+      srcSize: SleepingCatSpriteSheet.spriteSize,
     );
 
     animation = spriteSheet.createAnimation(
-      row: 0,
-      to: GirlThrowSnowballSpriteSheet.numberOfSprites,
-      stepTime: 0.2,
+      row: SleepingCatSpriteSheet.animationRowIndex,
+      to: SleepingCatSpriteSheet.numberOfSprites,
+      stepTime: 0.6,
     );
-    size = GirlThrowSnowballSpriteSheet.spriteSize * 1.7;
+    size = SleepingCatSpriteSheet.spriteSize * 0.37;
     anchor = Anchor.center;
 
     await super.onLoad();
@@ -36,7 +36,7 @@ class GirlThrowSnowballComponent extends SpriteAnimationComponent
     if (other is NewbieComponent) {
       gameRef.collisionDirection = gameRef.newbieMovementState;
       gameRef.showDialogByPosition(
-        'Твои земли будут моими!',
+        'Я правда не знаю как "фвыа яохъйтафша воыфа" попало в продакшн',
         position - Vector2(0, 44),
       );
     }

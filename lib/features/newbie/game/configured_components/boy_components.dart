@@ -21,14 +21,27 @@ final List<SpriteAnimationComponent> getBoyComponents = [
   OrangeBoyComponent(dialog: 'Теща - это святое')..position = Vector2(3033.9921875, 332.0390625),
   OrangeBoyComponent(dialog: 'Давайте подождём, что скажет тестирование. Я всего лишь менеджер.')
     ..position = Vector2(3303.66015625, 201.421875),
+  OrangeBoyComponent(
+    direction: MovementDirection.walkLeft,
+    dialog:
+        'Она сказала, что любит меня как друга. Я ответил ей, что в С++ друзья имеют доступ к приватным частям',
+  )..position = Vector2(3648.2109375, 732.84375),
   BrownBoyComponent(dialog: 'Уходи')..position = Vector2(3109.32421875, 204.078125),
   BrownBoyComponent(
     dialog: 'Если есть необходимость работы в офисе на выходных, записывайся до 11 часов',
     direction: MovementDirection.walkLeft,
   )..position = Vector2(1565.64453125, 392.54296875),
+  BrownBoyComponent(
+    dialog:
+        'Встречаются два девопс на концеренции. -Как сделать чтобы релизить быстро и качественно? -Могу рассказать -Расказать я и сам могу, а как сделать то?',
+    direction: MovementDirection.walkLeft,
+  )..position = Vector2(3262.99609375, 191.578125),
   BlueBoyComponent(
     dialog: 'Не забудь забрать еду из холодильника',
   )..position = Vector2(2646.14453125, 420.06640625),
+  BlueBoyComponent(
+    dialog: '-У нас дыра в безопасности -Слава Богу, хоть что-то у нас в безопасности',
+  )..position = Vector2(3859.4140625, 716.1640625),
   BlueBoyComponent(
     dialog: 'Я бы начал волноваться. Все таки пятница вечер.',
   )..position = Vector2(3480.7265625, 722.0000500000001),
@@ -42,7 +55,11 @@ final List<SpriteAnimationComponent> getBoyComponents = [
   )..position = Vector2(1458.171875, 886.1641125000001),
   BlueBoyComponent(
     dialog: '-Вы курите? -Только когда пишу юнит тесты -Ваши легкие полностью здоровы',
-  )..position = Vector2(540.84765625, 893.9375500000001),
+  )..position = Vector2(348.3125, 742.765625),
+  BlueBoyComponent(
+    dialog: '-Какое волшебное слово надо сказать, чтобы получить то, что хочешь? -sudo',
+    direction: MovementDirection.walkLeft,
+  )..position = Vector2(542.33984375, 892.53515625),
   OrangeBoyComponent(
     dialog:
         'Всегда было интересно как устраиваются на работу сами эйчары. Типа им нужно убить предыдущего эйчара? Или победить босса-эйчара? Или у них что-то типа игры кто кого пересобесит? Как?',
@@ -50,4 +67,12 @@ final List<SpriteAnimationComponent> getBoyComponents = [
   BlueBoyComponent(
     dialog: 'Аксес денайд. Юзер инвалид.',
   )..position = Vector2(3511.296875, 377.0390625),
+  BlueBoyComponent(
+    dialog:
+        '-Насколько это срочная задача? -Это не просто срочно. Это очень срочно! И сделать это нужно ни сегодня, ни завтра, а внезапно!',
+  )..position = Vector2(2658.75390625, 161.06640625),
+  OrangeBoyComponent(
+    dialog:
+        '-Моему другу нужен сайт. Предложил вариант за 500 баксов и дал твой номер телефона -Что, а сайт то большой? -Размером с обычный экран',
+  )..position = Vector2(3481.1484375, 661.40625),
 ];

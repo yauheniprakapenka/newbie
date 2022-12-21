@@ -12,6 +12,7 @@ import '../../../core_ui/dialog_component.dart';
 import '../../../core_ui/movement_direction.dart';
 import '../obstacles/elevator/get_elevator_obstacle.dart';
 import '../obstacles/main_door_in_building/get_main_door_to_building_obstacle.dart';
+import '../sprite_animations/cat_sleeping/sleeping_cat_component.dart';
 import '../sprite_animations/figure_skates_girl/figure_skates_girl_component.dart';
 import '../sprite_animations/green_girl/green_girl_component.dart';
 import '../sprite_animations/purple_girl/purple_girl_component.dart';
@@ -28,6 +29,7 @@ import 'rooms/elevator_room.dart';
 import 'rooms/room401.dart';
 import 'rooms/room404.dart';
 import 'rooms/room405a.dart';
+import 'rooms/room405v.dart';
 import 'rooms/room415v.dart';
 import 'rooms/room416.dart';
 import 'sprites/info_component/info_component.dart';
@@ -36,7 +38,7 @@ import 'sprites/java_image_component.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(4059.203125, 598.296875);
+  static final Vector2 _newBiePosition = Vector2(1731.26953125, 1459.55859375);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -73,7 +75,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
       ..position = Vector2(1131.12890625, 1069.8671875)
       ..size = GarlandSpriteSheet.spriteSize,
     BoyWithStickComponent()..position = Vector2(1833.296875, 1439.171925),
-    GirlThrowSnowballComponent()..position = Vector2(1980, 1430),
+    GirlThrowSnowballComponent()..position = Vector2(1930, 1430),
     SantaClausComponent()..position = Vector2(1033.1171875, 1119.6016125),
     RabbitComponent(initialePosition: Vector2(492.0625, 1547.25395625)),
     RabbitComponent(initialePosition: Vector2(991.65234375, 1389.08208125)),
@@ -84,7 +86,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
       dialog:
           'На почте лежит резюме от разработчика с фамилией Мамкин. Хочу, чтобы Мамкин программист работал у нас. Берем без собеса.',
       direction: MovementDirection.walkLeft,
-    )..position = Vector2(4002.359375, 665.15234375),
+    )..position = Vector2(4002.09375, 751.40234375),
     GreenGirlComponent(
       dialog: '-А эти жуки... -Баги -Хорошо, баги. Они сейчас здесь, с тобой в этой комнате?',
       direction: MovementDirection.walkLeft,
@@ -119,6 +121,24 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     LanternLightComponent()..position = Vector2(2924.26953125, 646.898437),
     LanternLightComponent()..position = Vector2(3243.40625, 183.0703125),
     LanternLightComponent()..position = Vector2(3333.1484375, 566.21875),
+    SleepingCatComponent()..position = Vector2(3236.30859375, 265.70703125),
+    ...room405v,
+    PurpleGirlComponent(
+      dialog:
+          '-Хочешь построить со мной отношения? -Какие именно? Один к одному, один ко многим, многие ко многим?',
+    )..position = Vector2(2800.3359375, 719.65234375),
+    GreenGirlComponent(
+      dialog:
+          'Каждое мое утро начинается с чашечки добрящего... сожаления о том, что я вчера не лег спать пораньше',
+      direction: MovementDirection.walkLeft,
+    )..position = Vector2(607.76953125, 364.4140625),
+    GreenGirlComponent(
+      dialog: 'Опыт работы вожатым в детском лагере говорит о потенциальным тимлиде',
+    )..position = Vector2(2803.69140625, 245.83203125),
+    GreenGirlComponent(
+      dialog:
+          'Со мной работал индус, который не умел даже мержить. Это был человек с опытом 16 лет, хотя ему было 28. Я спросила, когда он успел столько поработать, он сказал, что в прошлой жизни он тоже программировал и этот опыт считается',
+    )..position = Vector2(3441.07421875, 770.91015625),
   ];
 
   // * Elevator

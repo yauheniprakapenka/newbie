@@ -1,5 +1,6 @@
 import 'package:flame/components.dart';
 
+import '../../sprite_animations/blue_boy/blue_boy_component.dart';
 import '../../sprite_animations/cpu_indicators/cpu_indicator_component.dart';
 
 final List<SpriteAnimationComponent> room415vComponents = [
@@ -23,4 +24,5 @@ final List<SpriteAnimationComponent> room415vComponents = [
   CpuIndicatorComponent.yellow()..position = Vector2(3800.86328125, 653.43359375),
   CpuIndicatorComponent.yellow()..position = Vector2(3833.58203125, 683.0390625),
   CpuIndicatorComponent.yellow()..position = Vector2(3782.28125, 698.93359375),
+  BlueBoyComponent(hasCollision: false)..position = Vector2(3687.16015625, 653.88671875),
 ];
