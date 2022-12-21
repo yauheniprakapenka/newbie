@@ -12,6 +12,7 @@ import '../../../core_ui/dialog_component.dart';
 import '../../../core_ui/movement_direction.dart';
 import '../obstacles/elevator/get_elevator_obstacle.dart';
 import '../obstacles/main_door_in_building/get_main_door_to_building_obstacle.dart';
+import '../obstacles/obstacle_wall/get_wall_obstacle.dart';
 import '../sprite_animations/cat_sleeping/sleeping_cat_component.dart';
 import '../sprite_animations/figure_skates_girl/figure_skates_girl_component.dart';
 import '../sprite_animations/green_girl/green_girl_component.dart';
@@ -38,7 +39,7 @@ import 'sprites/java_image_component.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(1731.26953125, 1459.55859375);
+  static final Vector2 _newBiePosition = Vector2(264.3046875,27.83984375);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -49,8 +50,8 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
   // * Components
 
   final List<PositionComponent> _components = [
-    AmbulanceCarComponent()..position = Vector2(250, 1000),
-    PoliceCarComponent()..position = Vector2(250, 1100),
+    AmbulanceCarComponent()..position = Vector2(349.66015625, 120.08203125),
+    PoliceCarComponent()..position = Vector2(341.39453125, 208.5546875),
     KidYellowComponent()..position = Vector2(1642.7578125, 1471.828125),
     PinkGirlComponent(),
     GlaucousGirlComponent(),
@@ -194,6 +195,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     unawaited(_floorManager.start());
     await _initializeElevatorDoor();
 
+    await addAll(getWallObstacle(tiledMap: newbieMap));
     await add(await getMainDoorToBuildingObstacle(tiledMap: newbieMap));
     await addAll(getElevatorObstacle(tiledMap: newbieMap));
   }

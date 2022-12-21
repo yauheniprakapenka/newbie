@@ -17,17 +17,13 @@ class NewbieComponent extends SpriteAnimationComponent
 
   static const double _speed = 4.5;
   static const double _stepTime = 0.2;
-  static const double _relationToSpriteSize = 0.7;
   static const int _desiredNumberOfnumberOfSpritesForIdleAnimation = 1;
 
   Vector2 get _componentSize => NewbieSpriteSheet.spriteSize * 0.85;
 
   NewbieComponent() {
     add(
-      RectangleHitbox.relative(
-        Vector2.all(_relationToSpriteSize),
-        parentSize: _componentSize,
-      ),
+      RectangleHitbox(size: Vector2.all(25), anchor: Anchor.center, position: Vector2.all(22)),
     );
   }
 
@@ -36,7 +32,7 @@ class NewbieComponent extends SpriteAnimationComponent
     await _createAnimation();
     animation = _idle;
     size = _componentSize;
-    anchor = Anchor.center;
+    // anchor = Anchor.center;
     debugMode = true;
     await super.onLoad();
   }
