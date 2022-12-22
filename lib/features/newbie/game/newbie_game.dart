@@ -20,6 +20,7 @@ import '../sprite_animations/purple_girl/purple_girl_component.dart';
 import '../sprite_animations/rabbit/rabbit_component.dart';
 import '../sprite_animations/sprite_animations.dart';
 import '../sprite_animations/text_401/text_401_component.dart';
+import '../sprites/coca_cola_component.dart';
 import '../sprites/floor_indicator_component/floor_indicator_component.dart';
 import '../sprites/snowflake_component.dart';
 import 'configured_components/birds_components.dart';
@@ -43,7 +44,7 @@ import 'sprites/java_image_component.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(461.77734375, 641.34375);
+  static final Vector2 _newBiePosition = Vector2(2859.55624999998, 673.4195312499995);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -146,6 +147,20 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     )..position = Vector2(3441.07421875, 770.91015625),
     ...happyBirthday,
     Text401Component()..position = Vector2(469.921875, 713.5),
+    CocaColaComponent()..position = Vector2(354.3046875, 803.1210937),
+    GreenGirlComponent(
+      dialog: 'Ну давай, расскажи мне, что это не баг, а фича',
+    )..position = Vector2(1414.1562500000161, 894.6679687499995),
+    GreenGirlComponent(
+      dialog: '-Мне нравятся смелые парни -Я пишу код без тестов',
+    )..position = Vector2(1416.296875000004, 810.8718749999996),
+    GreenGirlComponent(
+      dialog: 'Почини "название бытовой техники", ты же программист!',
+    )..position = Vector2(1450.5632812500041, 350.6179687499982),
+    PurpleGirlComponent(
+      dialog:
+          '-Почему вы просите такую высокую зарплату, не имя соответствующего опыта? -Работа намного сложнее, когда не знаешь, что делаешь',
+    )..position = Vector2(1449.8015625000041, 458.7820312499982),
   ];
 
   // * Elevator

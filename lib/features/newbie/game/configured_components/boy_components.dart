@@ -7,7 +7,7 @@ import '../../sprite_animations/old_man/old_man_component.dart';
 import '../../sprite_animations/orange_boy/orange_boy_component.dart';
 
 final List<SpriteAnimationComponent> getBoyComponents = [
-  OrangeBoyComponent(dialog: 'Делаю как на андроид')..position = Vector2(357.2578125, 865.40625),
+  OrangeBoyComponent(dialog: 'Делаю как на андроид')..position = Vector2(357.2578125, 891.40625),
   OrangeBoyComponent(dialog: 'Не работает принтер в галерее?')
     ..position = Vector2(3734.3359375, 773.08203125),
   BrownBoyComponent(
@@ -75,4 +75,15 @@ final List<SpriteAnimationComponent> getBoyComponents = [
     dialog:
         '-Моему другу нужен сайт. Предложил вариант за 500 баксов и дал твой номер телефона -Что, а сайт то большой? -Размером с обычный экран',
   )..position = Vector2(3481.1484375, 661.40625),
+  BlueBoyComponent(
+    dialog: 'Не волнуйтесь, если что-то не работает. Если бы все работало, то вас бы уволили',
+  )..position = Vector2(1406.8718750000103, 515.4601562499997),
+  OrangeBoyComponent(
+    dialog: 'А что, если заказчик знает, что он хочет?',
+  )..position = Vector2(2951.54843749998, 777.1187499999995),
+  OrangeBoyComponent()..position = Vector2(2018.2507812499875, 597.0710937499988),
+  OrangeBoyComponent()..position = Vector2(2383.410937499991, 581.5898437499987),
+  BlueBoyComponent()..position = Vector2(2363.289843749991, 600.3046874999987),
+  BrownBoyComponent()..position = Vector2(2137.8148437499935, 614.9609374999987),
+  BrownBoyComponent()..position = Vector2(3004.7874999999935, 407.13281249999875),
 ];
