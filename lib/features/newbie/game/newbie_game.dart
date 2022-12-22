@@ -21,6 +21,7 @@ import '../sprite_animations/rabbit/rabbit_component.dart';
 import '../sprite_animations/sprite_animations.dart';
 import '../sprite_animations/text_401/text_401_component.dart';
 import '../sprites/floor_indicator_component/floor_indicator_component.dart';
+import '../sprites/snowflake_component.dart';
 import 'configured_components/birds_components.dart';
 import 'configured_components/boy_components.dart';
 import 'configured_components/lantern_light_components.dart';
@@ -35,6 +36,7 @@ import 'rooms/room405a.dart';
 import 'rooms/room405v.dart';
 import 'rooms/room415v.dart';
 import 'rooms/room416.dart';
+import 'rooms/snowflakes.dart';
 import 'sprites/info_component/info_component.dart';
 import 'sprites/java_image_component.dart';
 
@@ -143,7 +145,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
           'Со мной работал индус, который не умел даже мержить. Это был человек с опытом 16 лет, хотя ему было 28. Я спросила, когда он успел столько поработать, он сказал, что в прошлой жизни он тоже программировал и этот опыт считается',
     )..position = Vector2(3441.07421875, 770.91015625),
     ...happyBirthday,
-    Text401Component()..position = Vector2(469.921875,713.5),
+    Text401Component()..position = Vector2(469.921875, 713.5),
   ];
 
   // * Elevator
@@ -202,6 +204,8 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
     await addAll(getWallObstacle(tiledMap: newbieMap));
     await add(await getMainDoorToBuildingObstacle(tiledMap: newbieMap));
     await addAll(getElevatorObstacle(tiledMap: newbieMap));
+
+    await addAll(snowflakes);
   }
 
   @override
