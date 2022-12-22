@@ -15,7 +15,7 @@ class NewbieComponent extends SpriteAnimationComponent
   late final SpriteAnimation _walkUp;
   late final SpriteAnimation _idle;
 
-  static const double _speed = 1.7;
+  static const double _speed = 1.5;
   static const double _stepTime = 0.2;
   static const int _desiredNumberOfnumberOfSpritesForIdleAnimation = 1;
 
