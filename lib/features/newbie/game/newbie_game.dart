@@ -39,7 +39,7 @@ import 'sprites/java_image_component.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(264.3046875,27.83984375);
+  static final Vector2 _newBiePosition = Vector2(1283.6015625, 519.2421875);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;

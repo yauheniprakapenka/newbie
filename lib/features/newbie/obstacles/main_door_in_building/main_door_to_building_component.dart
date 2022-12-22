@@ -15,7 +15,7 @@ class MainDoorToBuildingComponent extends PositionComponent
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is NewbieComponent) {
       gameRef.collisionDirection = gameRef.newbieMovementState;
-      final Vector2 elevatorPosition = Vector2(1276.33203125, 509.9141125000001);
+      final Vector2 elevatorPosition = Vector2(1254.8828125, 501.27734375);
       gameRef.newbie.position = elevatorPosition;
       gameRef.newbieMovementState = MovementDirection.idle;
     }

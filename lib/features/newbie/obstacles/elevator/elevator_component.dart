@@ -5,8 +5,7 @@ import '../../../../core_ui/movement_direction.dart';
 import '../../game/newbie_game.dart';
 import '../../sprite_animations/sprite_animations.dart';
 
-class ElevatorComponent extends PositionComponent
-    with CollisionCallbacks, HasGameRef<NewbieGame> {
+class ElevatorComponent extends PositionComponent with CollisionCallbacks, HasGameRef<NewbieGame> {
   ElevatorComponent() {
     add(RectangleHitbox());
   }
@@ -15,7 +14,7 @@ class ElevatorComponent extends PositionComponent
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is NewbieComponent) {
       gameRef.collisionDirection = gameRef.newbieMovementState;
-      final Vector2 mainDoorPosition = Vector2(1129.87109375,1215.6172375);
+      final Vector2 mainDoorPosition = Vector2(1112.63671875, 1169.61333125);
       gameRef.newbie.position = mainDoorPosition;
       gameRef.newbieMovementState = MovementDirection.idle;
     }
