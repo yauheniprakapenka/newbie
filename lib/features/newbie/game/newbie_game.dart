@@ -27,6 +27,7 @@ import 'floor_manager.dart';
 import 'init_app_joystick.dart';
 import 'rooms/conference_room.dart';
 import 'rooms/elevator_room.dart';
+import 'rooms/happy_birthday.dart';
 import 'rooms/room401.dart';
 import 'rooms/room404.dart';
 import 'rooms/room405a.dart';
@@ -39,7 +40,7 @@ import 'sprites/java_image_component.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(1283.6015625, 519.2421875);
+  static final Vector2 _newBiePosition = Vector2(3341.65234375, 445.8203125);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -140,6 +141,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
       dialog:
           'Со мной работал индус, который не умел даже мержить. Это был человек с опытом 16 лет, хотя ему было 28. Я спросила, когда он успел столько поработать, он сказал, что в прошлой жизни он тоже программировал и этот опыт считается',
     )..position = Vector2(3441.07421875, 770.91015625),
+    ...happyBirthday,
   ];
 
   // * Elevator
