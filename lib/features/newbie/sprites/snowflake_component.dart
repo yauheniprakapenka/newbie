@@ -9,7 +9,7 @@ class SnowFlakeComponent extends SpriteComponent with HasGameRef<NewbieGame> {
   @override
   Future<void> onLoad() async {
     sprite = await gameRef.loadSprite(SnowflakeSprite.path);
-    size = SnowflakeSprite.srcSize * 0.02;
+    size = SnowflakeSprite.srcSize * 0.03;
     anchor = Anchor.center;
   }
 
@@ -20,7 +20,7 @@ class SnowFlakeComponent extends SpriteComponent with HasGameRef<NewbieGame> {
   }
 
   void _updateMovement() {
-    y += 0.04;
+    y += 0.1;
     if (y > _room401BottomY) {
       y = _room401TopY;
     }
