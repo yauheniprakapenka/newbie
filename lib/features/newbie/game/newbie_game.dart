@@ -19,6 +19,7 @@ import '../sprite_animations/green_girl/green_girl_component.dart';
 import '../sprite_animations/purple_girl/purple_girl_component.dart';
 import '../sprite_animations/rabbit/rabbit_component.dart';
 import '../sprite_animations/sprite_animations.dart';
+import '../sprite_animations/text_401/text_401_component.dart';
 import '../sprites/floor_indicator_component/floor_indicator_component.dart';
 import 'configured_components/birds_components.dart';
 import 'configured_components/boy_components.dart';
@@ -40,7 +41,7 @@ import 'sprites/java_image_component.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(3341.65234375, 445.8203125);
+  static final Vector2 _newBiePosition = Vector2(461.77734375, 641.34375);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -142,6 +143,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
           'Со мной работал индус, который не умел даже мержить. Это был человек с опытом 16 лет, хотя ему было 28. Я спросила, когда он успел столько поработать, он сказал, что в прошлой жизни он тоже программировал и этот опыт считается',
     )..position = Vector2(3441.07421875, 770.91015625),
     ...happyBirthday,
+    Text401Component()..position = Vector2(469.921875,713.5),
   ];
 
   // * Elevator
