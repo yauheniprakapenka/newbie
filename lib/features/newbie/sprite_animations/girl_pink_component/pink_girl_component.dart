@@ -25,7 +25,7 @@ class PinkGirlComponent extends SpriteAnimationComponent
   @override
   Future<void> onLoad() async {
     await _createAnimation();
-    size = PinkGirlSpriteSheet.spriteSize * 0.8;
+    size = PinkGirlSpriteSheet.spriteSize * 0.66;
     animation = _walkLeftAnimation;
     _movementDirection = MovementDirection.walkLeft;
     position = _initialePosition;

@@ -81,9 +81,9 @@ final List<SpriteAnimationComponent> getBoyComponents = [
   OrangeBoyComponent(
     dialog: 'А что, если заказчик знает, что он хочет?',
   )..position = Vector2(2951.54843749998, 777.1187499999995),
-  OrangeBoyComponent()..position = Vector2(2018.2507812499875, 597.0710937499988),
-  OrangeBoyComponent()..position = Vector2(2383.410937499991, 581.5898437499987),
-  BlueBoyComponent()..position = Vector2(2363.289843749991, 600.3046874999987),
-  BrownBoyComponent()..position = Vector2(2137.8148437499935, 614.9609374999987),
-  BrownBoyComponent()..position = Vector2(3004.7874999999935, 407.13281249999875),
+  OrangeBoyComponent(hasCollision: false)..position = Vector2(2018.2507812499875, 597.0710937499988),
+  OrangeBoyComponent(hasCollision: false)..position = Vector2(2383.410937499991, 581.5898437499987),
+  BlueBoyComponent(hasCollision: false)..position = Vector2(2363.289843749991, 600.3046874999987),
+  BrownBoyComponent(hasCollision: false)..position = Vector2(2137.8148437499935, 614.9609374999987),
+  BrownBoyComponent(hasCollision: false)..position = Vector2(3004.7874999999935, 407.13281249999875),
 ];

@@ -22,10 +22,10 @@ import '../sprite_animations/sprite_animations.dart';
 import '../sprite_animations/text_401/text_401_component.dart';
 import '../sprites/coca_cola_component.dart';
 import '../sprites/floor_indicator_component/floor_indicator_component.dart';
-import '../sprites/snowflake_component.dart';
 import 'configured_components/birds_components.dart';
 import 'configured_components/boy_components.dart';
 import 'configured_components/lantern_light_components.dart';
+import 'configured_components/lantern_light_components2.dart';
 import 'floor_manager.dart';
 import 'init_app_joystick.dart';
 import 'rooms/conference_room.dart';
@@ -44,7 +44,7 @@ import 'sprites/java_image_component.dart';
 class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, HasDraggables {
   // * Newbie
 
-  static final Vector2 _newBiePosition = Vector2(2859.55624999998, 673.4195312499995);
+  static final Vector2 _newBiePosition = Vector2(261.234375,23.375);
   late final NewbieComponent newbie;
   MovementDirection newbieMovementState = MovementDirection.idle;
   MovementDirection collisionDirection = MovementDirection.noCollision;
@@ -161,6 +161,7 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
       dialog:
           '-Почему вы просите такую высокую зарплату, не имя соответствующего опыта? -Работа намного сложнее, когда не знаешь, что делаешь',
     )..position = Vector2(1449.8015625000041, 458.7820312499982),
+    ...getLanternLightComponents2,
   ];
 
   // * Elevator

@@ -25,7 +25,7 @@ class GlaucousGirlComponent extends SpriteAnimationComponent
   @override
   Future<void> onLoad() async {
     await _createAnimation();
-    size = GlaucousGirlSpriteSheet.spriteSize * 0.8;
+    size = GlaucousGirlSpriteSheet.spriteSize * 0.66;
     animation = _walkLeftAnimation;
     _movementDirection = MovementDirection.walkLeft;
     position = _initialePosition;

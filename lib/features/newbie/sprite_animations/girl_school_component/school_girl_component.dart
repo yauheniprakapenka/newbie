@@ -24,7 +24,7 @@ class SchoolGirlComponent extends SpriteAnimationComponent
   @override
   Future<void> onLoad() async {
     await _createAnimation();
-    size = SchoolGirlSpriteSheet.spriteSize * 0.8;
+    size = SchoolGirlSpriteSheet.spriteSize * 0.66;
     position = _initialePosition;
     await super.onLoad();
   }

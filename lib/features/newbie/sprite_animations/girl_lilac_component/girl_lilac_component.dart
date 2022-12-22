@@ -24,7 +24,7 @@ class GirlLilacComponent extends SpriteAnimationComponent with HasGameRef<Newbie
   @override
   Future<void> onLoad() async {
     await _createSpriteAnimations();
-    size = GirlLilacSpriteSheet.spriteSize * 0.8;
+    size = GirlLilacSpriteSheet.spriteSize * 0.66;
     position = _initialePosition;
     await super.onLoad();
   }
