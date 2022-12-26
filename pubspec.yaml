@@ -24,6 +24,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/audio/
     - assets/tiles/
     - assets/images/newbie/sprite_sheets/
     - assets/images/newbie/sprites/buttons/

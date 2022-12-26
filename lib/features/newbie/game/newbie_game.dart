@@ -26,6 +26,7 @@ import 'configured_components/birds_components.dart';
 import 'configured_components/boy_components.dart';
 import 'configured_components/lantern_light_components.dart';
 import 'configured_components/lantern_light_components2.dart';
+import 'controllers/audio_controller.dart';
 import 'floor_manager.dart';
 import 'init_app_joystick.dart';
 import 'rooms/conference_room.dart';
@@ -191,6 +192,9 @@ class NewbieGame extends FlameGame with HasCollisionDetection, HasTappables, Has
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+    final AudioController audioController = AudioController();
+    audioController.initialize();
+    await audioController.playBackground();
 
     final TiledComponent newbieMap = await TiledComponent.load(
       NewbieMapTiledComponent.path,
